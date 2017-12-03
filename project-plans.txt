@@ -1,0 +1,30 @@
+DATA VIS PROJECT PLAN:
+0. write a spec of what data I want, and what structures should house it
+DATA I WANT:
+
+AUTHORS:
+"Angela Lee Duckworth"
+"Barbara L. Fredrickson"
+"Carol S. Dweck"
+"Corey Lee M. Keyes"
+"Dacher J Keltner"
+"Daniel J Siegel"
+"Daniel T. Gilbert"
+"Emma M Seppala"
+"Frederic Luskin"
+"Jennifer L. Aaker"
+"Jon Kabat-Zinn"
+"Kelly M McGonigal"
+"Kristin D. Neff"
+"Martin E. P. Seligman"
+"Mihály Csíkszentmihályi"
+"Richard J. Davidson"
+"Robert A. Emmons"
+"Sonja Lyubomirsky"
+"Zindel V. Segal"
+
+
+1. write some python to aggregate it, and filter it to what I need
+2. use out-of-the-box graph vis to get a sense, run some basic stats
+3. look over notes, ideas, existing work, decide what would be the COOLEST features, sketch em out.
+4. Make a schedule
