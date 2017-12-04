@@ -1,6 +1,8 @@
-print "\n"
-target = "https://api.semanticscholar.org/v1/paper/f17311030dc49c450b3a48a1d93a196638dc6923"
-url    = "https://www.semanticscholar.org/paper/f17311030dc49c450b3a48a1d93a196638dc6923"
-newURL = "https://api.semanticscholar.org/v1/paper/" + url[(url.find("paper/") + len("paper/")):]
-print newURL
-print target
+from sets import Set
+from pprint import pprint
+s = Set()
+s.add({1})
+s.add({2})
+s.add({1})
+
+pprint(s)

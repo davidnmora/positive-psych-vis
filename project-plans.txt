@@ -25,6 +25,10 @@ AUTHORS:
 
 
 1. write some python to aggregate it, and filter it to what I need
+
+- convert to node and edge list
+
+
 2. use out-of-the-box graph vis to get a sense, run some basic stats
 3. look over notes, ideas, existing work, decide what would be the COOLEST features, sketch em out.
 4. Make a schedule

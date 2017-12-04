@@ -2,7 +2,6 @@ import json
 import csv
 import time
 import grequests 
-from pprint import pprint
 from threading import Thread, RLock
 mutex = RLock()
 
@@ -42,8 +41,6 @@ for author in authorToAutherURLMap:
 
 
 grequests.map(unsentAuthorRequests, exception_handler=exception_handler) # actually make requests
-
-# pprint(authorJSONs)
 
 # PART 2: COMPILE ALL PAPERS, INDEXED BY PAPER NAME
 paperJSONDict = {}
