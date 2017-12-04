@@ -1,5 +1,6 @@
 import json
 import csv
+import time
 import grequests 
 from pprint import pprint
 from threading import Thread, RLock
@@ -15,12 +16,14 @@ def getAuthorJSON(response, *args, **kwargs):
 	mutex.acquire()
 	try:
 		authorJSONs.append(response.content)
+		print (json.loads(response.content)["name"])
 		print "DONE: " +  response.url
 	finally:
 		mutex.release()
 
 def exception_handler(request, exception):
-	print "ERROR: request failed: " + request.url
+	print "ERROR: request failed: " + request.url + "<<<<<<<"
+	print ("Request error: {0}".format(exception))
 
 
 with open('core-authors-with-s2ids-FINAL.csv', 'r') as csvfile:
@@ -30,7 +33,7 @@ with open('core-authors-with-s2ids-FINAL.csv', 'r') as csvfile:
 		s2Id = int(authorS2Pair[1])
 		authorToS2IdMap     [name]  = s2Id
 		authorToAutherURLMap[name]  = "https://api.semanticscholar.org/v1/author/" + str(s2Id)
-		print name, s2Id
+		# print name, s2Id
 
 
 unsentAuthorRequests = []
@@ -43,30 +46,36 @@ grequests.map(unsentAuthorRequests, exception_handler=exception_handler) # actua
 # pprint(authorJSONs)
 
 # PART 2: COMPILE ALL PAPERS, INDEXED BY PAPER NAME
+paperJSONDict = {}
 def getPaperJSON(response, *args, **kwargs):
 	mutex.acquire()
 	try:
-		authorJSONs.append(response.content)
-		print "DONE: " +  response.url
+		paper = json.loads(response.content)
+		paperJSONDict[paper["title"]] = paper
+		print "PAPER " + " DONE: " +  paper["title"]
 	finally:
 		mutex.release()
 
-unsentPaperRequests = []
+def getPaperURL(url):
+	return "https://api.semanticscholar.org/v1/paper/" + url[(url.find("paper/") + len("paper/")):]
+
+
+
 for authorJSON in authorJSONs:
+	unsentPaperRequests = []
 	author = json.loads(authorJSON)
 	for paper in author["papers"]:
 		print paper["title"]
-		unsentPaperRequests.append(grequests.get(paper["url"], hooks={'response': getPaperJSON}))
+		unsentPaperRequests.append(grequests.get(getPaperURL(paper["url"]), hooks={'response': getPaperJSON}))
+	grequests.map(unsentPaperRequests, exception_handler=exception_handler) # actually make requests
+	print author["name"] + " scheduled."
+	print "MAIN THREAD SLEEPING FOR 7 SEC before spawning new author requests..."
+	time.sleep(7)
 
-grequests.map(unsentPaperRequests, exception_handler=exception_handler) # actually make requests
 
+print "FINISHED grequests.map ..................."
 
-
-# sampleAuthorURL = "https://api.semanticscholar.org/v1/author/1741101"
-# samplePaperURL = "https://api.semanticscholar.org/v1/paper/0796f6cd7f0403a854d67d525e9b32af3b277331"
-
-# dict: author --> id 
-# for each author
-	# for each paper
-		# get paper JSON
-		# save to a giant JSON of all papers
+paperJSONFile = open("papers-by-title.json", "w")
+paperJSONFile.write(json.dumps(paperJSONDict))
+paperJSONFile.close()
+print "COMPLETE: json saved to disk"
