@@ -30,8 +30,8 @@ def generateGraphData():
 	for paperTitle in papersDict:
 		paper = papersDict[paperTitle]
 		# add to nodeArray
-		currPaperIndex = currNodeArrayIndex
 		currNodeArrayIndex = addNode(paper, 1, currNodeArrayIndex)
+		currPaperIndex = currNodeArrayIndex
 		# add all in going links (citations)
 		for citedPaper in paper["citations"]:
 			currNodeArrayIndex = addNode(citedPaper, 1, currNodeArrayIndex)
