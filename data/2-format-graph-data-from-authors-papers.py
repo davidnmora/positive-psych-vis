@@ -13,7 +13,7 @@ existingPaperTitles = set()
 def addNode(paper, groupNum):
 	paperTitle = paper["title"]
 	if paperTitle not in existingPaperTitles:
-		nodeArray.append({"name": paperTitle, "group": groupNum})
+		nodeArray.append({"label": paperTitle, "group": groupNum})
 		existingPaperTitles.add(paperTitle)
 
 def addEdge(source, target, value):
