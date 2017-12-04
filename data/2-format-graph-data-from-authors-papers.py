@@ -10,33 +10,45 @@ linkArray = [] # [ {"source": 1, "target": 0, "value": 1}, ... ]
 existingPaperTitles = set()
 
 
-def addNode(paper, groupNum):
-	paperTitle = paper["title"]
-	if paperTitle not in existingPaperTitles:
-		nodeArray.append({"label": paperTitle, "group": groupNum})
-		existingPaperTitles.add(paperTitle)
 
-def addEdge(source, target, value):
-	linkArray.append({"source": source["title"], "target": target["title"], "value": value})
 
-for paperTitle in papersDict:
-	paper = papersDict[paperTitle]
-	# add to nodeArray
-	addNode(paper, 1)
-	# add all in going links (citations)
-	for citedPaper in paper["citations"]:
-		addNode(citedPaper, 1)
-		addEdge(paper, citedPaper, 1)
-	# add all out going links (references)
-	for refPaper in paper["references"]:
-		addNode(refPaper, 1)
-		addEdge(paper, refPaper, 1)
 
-pprint(len(nodeArray))
-pprint(len(linkArray))
+def generateGraphData():
+	currNodeArrayIndex = -1
+	def addNode(paper, groupNum, currNodeArrayIndex):
+		paperTitle = paper["title"]
+		if paperTitle not in existingPaperTitles:
+			nodeArray.append({"label": paperTitle, "group": groupNum})
+			existingPaperTitles.add(paperTitle)
+			return currNodeArrayIndex + 1
+		else:
+			return currNodeArrayIndex
 
-graphData = { "nodes": nodeArray, "links": linkArray }
+	def addEdge(source, target, value):
+		linkArray.append({"source": source, "target": target, "value": value})
 
-with open("graph-data.json", "w") as gd:
-	gd.write(json.dumps(graphData))
-	gd.close()
+	for paperTitle in papersDict:
+		paper = papersDict[paperTitle]
+		# add to nodeArray
+		currPaperIndex = currNodeArrayIndex
+		currNodeArrayIndex = addNode(paper, 1, currNodeArrayIndex)
+		# add all in going links (citations)
+		for citedPaper in paper["citations"]:
+			currNodeArrayIndex = addNode(citedPaper, 1, currNodeArrayIndex)
+			addEdge(currNodeArrayIndex, currPaperIndex, 1)
+		# add all out going links (references)
+		for refPaper in paper["references"]:
+			currNodeArrayIndex = addNode(refPaper, 1, currNodeArrayIndex)
+			addEdge(currPaperIndex, currNodeArrayIndex, 1)
+
+	pprint(len(nodeArray))
+	pprint(len(linkArray))
+
+	graphData = { "nodes": nodeArray, "links": linkArray }
+
+	with open("graph-data.json", "w") as gd:
+		gd.write(json.dumps(graphData))
+		gd.close()
+
+
+generateGraphData()
