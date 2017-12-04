@@ -270,3 +270,1093 @@ See /usr/include/servers/bootstrap_defs.h for the error codes.
 
 ###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1512269757938	geckodriver	INFO	geckodriver 0.19.1
+1512269757942	geckodriver	INFO	Listening on 127.0.0.1:62716
+1512269759038	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.jDSO3Andepsm"
+1512269759578	Marionette	INFO	Enabled via --marionette
+2017-12-02 18:56:00.438 plugin-container[58631:11537030] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa237, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512269760801	Marionette	INFO	Listening on port 62729
+1512269760817	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512269760883	Marionette	DEBUG	Register listener.js for window 2147483649
+1512269760902	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512269761377	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512269761377	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512269761796	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512269764326	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+2017-12-02 18:57:08.314 firefox-bin[56619:11506548] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x0 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4099 "The connection from pid 0 was invalidated from this process." UserInfo={NSDebugDescription=The connection from pid 0 was invalidated from this process.}, com.apple.inputmethod.EmojiFunctionRowItem
+1512270030876	geckodriver	INFO	geckodriver 0.19.1
+1512270030880	geckodriver	INFO	Listening on 127.0.0.1:63931
+1512270031969	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.XKKIXr7boN04"
+1512270032456	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:00:33.410 plugin-container[58782:11539515] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa337, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512270033896	Marionette	INFO	Listening on port 63944
+1512270033946	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512270034005	Marionette	DEBUG	Register listener.js for window 2147483649
+1512270034042	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512270034539	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512270034539	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512270035069	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+2017-12-02 19:00:35.651 firefox-bin[58781:11539447] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x12b072b20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+1512270037694	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512270356687	geckodriver	INFO	geckodriver 0.19.1
+1512270356693	geckodriver	INFO	Listening on 127.0.0.1:65363
+1512270357819	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.ksUfxi3bwxRL"
+1512270358331	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:05:59.180 plugin-container[58964:11542035] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa237, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512270359643	Marionette	INFO	Listening on port 65376
+1512270359720	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512270359791	Marionette	DEBUG	Register listener.js for window 2147483649
+1512270359827	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512270360290	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512270360291	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512270360704	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+2017-12-02 19:06:02.278 firefox-bin[58781:11539447] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x12b072b20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+1512270363631	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512270376365	geckodriver	INFO	geckodriver 0.19.1
+1512270376368	geckodriver	INFO	Listening on 127.0.0.1:65528
+1512270377461	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.KPCkq0Dj4MzX"
+1512270377986	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:06:18.923 plugin-container[58991:11542508] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa137, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512270379396	Marionette	INFO	Listening on port 49157
+1512270379473	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512270379528	Marionette	DEBUG	Register listener.js for window 2147483649
+1512270379546	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512270379990	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512270379991	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512270380496	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512270382303	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512271713317	geckodriver	INFO	geckodriver 0.19.1
+1512271713322	geckodriver	INFO	Listening on 127.0.0.1:54332
+1512271714420	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.5jixHFqgw2Oz"
+1512271715055	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:28:36.105 plugin-container[59584:11591311] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa33f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512271716534	Marionette	INFO	Listening on port 54345
+1512271716629	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512271716689	Marionette	DEBUG	Register listener.js for window 2147483649
+1512271716703	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512271717184	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512271717185	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512271717665	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512271720096	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512271756375	addons.productaddons	WARN	Failed downloading XML, status: 0, reason: timeout
+1512271756704	geckodriver	INFO	geckodriver 0.19.1
+1512271756709	geckodriver	INFO	Listening on 127.0.0.1:54604
+1512271757802	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.6lbNkVRnP6gg"
+1512271758377	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:29:19.485 plugin-container[59636:11600319] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa337, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512271760042	Marionette	INFO	Listening on port 54618
+1512271760144	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512271760217	Marionette	DEBUG	Register listener.js for window 2147483649
+1512271760241	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512271763046	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512271763046	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512271764445	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512271795504	geckodriver	INFO	geckodriver 0.19.1
+1512271795510	geckodriver	INFO	Listening on 127.0.0.1:54855
+1512271795600	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.TFaG4fBuhYLd"
+1512271796186	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:29:57.303 plugin-container[59662:11608433] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa33b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512271798026	Marionette	INFO	Listening on port 54862
+1512271798123	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512271798192	Marionette	DEBUG	Register listener.js for window 2147483649
+1512271798223	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512271802655	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512271802655	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+2017-12-02 19:30:04.871 firefox-bin[59583:11591055] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x114f3d8e0 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-02 19:30:11.592 firefox-bin[59661:11608139] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10eba8040 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-02 19:30:25.591 firefox-bin[59661:11608139] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10eba8040 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+1512271834118	geckodriver	INFO	geckodriver 0.19.1
+1512271834122	geckodriver	INFO	Listening on 127.0.0.1:55092
+1512271835228	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.jkuwcFXiSjgx"
+1512271835826	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:30:36.848 plugin-container[59706:11616515] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa437, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512271837336	Marionette	INFO	Listening on port 55105
+1512271837426	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512271837501	Marionette	DEBUG	Register listener.js for window 2147483649
+1512271837535	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512271837967	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512271837968	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512271838536	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512271840776	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512271889548	geckodriver	INFO	geckodriver 0.19.1
+1512271889553	geckodriver	INFO	Listening on 127.0.0.1:55403
+1512271890648	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.8X6RIR0S36ze"
+1512271891250	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:31:32.303 plugin-container[59753:11627537] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa337, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512271892828	Marionette	INFO	Listening on port 55416
+1512271892934	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512271892997	Marionette	DEBUG	Register listener.js for window 2147483649
+1512271893019	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512271893460	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512271893460	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512271893870	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512271897092	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272486784	geckodriver	INFO	geckodriver 0.19.1
+1512272486789	geckodriver	INFO	Listening on 127.0.0.1:58119
+1512272487912	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.uljPOkmSUxwR"
+1512272488554	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:41:29.785 plugin-container[60003:11740831] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa137, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512272490210	Marionette	INFO	Listening on port 58132
+1512272490257	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512272490324	Marionette	DEBUG	Register listener.js for window 2147483649
+1512272490354	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512272490886	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512272490886	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512272491336	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272493678	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272528315	geckodriver	INFO	geckodriver 0.19.1
+1512272528320	geckodriver	INFO	Listening on 127.0.0.1:58382
+1512272529421	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.eigpxCk0EB51"
+1512272530059	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:42:11.247 plugin-container[60053:11748727] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa137, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512272531796	Marionette	INFO	Listening on port 58395
+1512272531872	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512272531953	Marionette	DEBUG	Register listener.js for window 2147483649
+1512272531976	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512272532432	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512272532432	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512272532934	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272536364	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272552421	geckodriver	INFO	geckodriver 0.19.1
+1512272552425	geckodriver	INFO	Listening on 127.0.0.1:58570
+1512272553518	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.qSGpLjMRj7w0"
+1512272554119	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:42:35.051 plugin-container[60079:11753372] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa03b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512272555553	Marionette	INFO	Listening on port 58583
+1512272555620	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512272555689	Marionette	DEBUG	Register listener.js for window 2147483649
+1512272555714	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512272556047	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512272556048	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512272556464	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272559676	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272611691	geckodriver	INFO	geckodriver 0.19.1
+1512272611696	geckodriver	INFO	Listening on 127.0.0.1:58902
+1512272612814	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.lXgotHeCaJmI"
+1512272613460	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:43:34.723 plugin-container[60123:11764554] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa137, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512272615255	Marionette	INFO	Listening on port 58915
+1512272615278	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512272615363	Marionette	DEBUG	Register listener.js for window 2147483649
+1512272615393	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512272615917	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512272615918	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512272616459	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272619106	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272619227	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272619340	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272619341	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272619432	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512272620690	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512272620850	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512272800555	geckodriver	INFO	geckodriver 0.19.1
+1512272800560	geckodriver	INFO	Listening on 127.0.0.1:59770
+1512272801671	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.NSjdm5VzWXy0"
+1512272802324	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:46:43.384 plugin-container[60225:11800187] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa237, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512272804038	Marionette	INFO	Listening on port 59783
+1512272804100	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512272804154	Marionette	DEBUG	Register listener.js for window 2147483649
+1512272804171	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512272804620	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512272804620	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512272810123	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+2017-12-02 19:46:53.885 firefox-bin[59705:11616253] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x114e35040 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+1512272863521	geckodriver	INFO	geckodriver 0.19.1
+1512272863525	geckodriver	INFO	Listening on 127.0.0.1:60119
+1512272864623	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.6OjiawXo82DL"
+1512272865303	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:47:46.297 plugin-container[60275:11813545] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa137, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512272866766	Marionette	INFO	Listening on port 60132
+1512272866842	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512272866919	Marionette	DEBUG	Register listener.js for window 2147483649
+1512272866956	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512272867442	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512272867442	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512272872753	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272875398	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272875651	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272875798	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272875799	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512272875904	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512272884432	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512272884550	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512272884744	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512272884745	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512272884854	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512272885512	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512273060514	geckodriver	INFO	geckodriver 0.19.1
+1512273060520	geckodriver	INFO	Listening on 127.0.0.1:61124
+1512273061628	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.QcI3TTXPJ9xW"
+1512273062255	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:51:03.254 plugin-container[60412:11850451] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa13b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512273063714	Marionette	INFO	Listening on port 61137
+1512273063739	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512273063823	Marionette	DEBUG	Register listener.js for window 2147483649
+1512273063844	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512273064786	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512273064787	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512273066025	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512273069036	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512273069158	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+2017-12-02 19:51:38.399 firefox-bin[60273:11813180] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x116ef1e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-02 19:51:43.930 firefox-bin[60411:11850186] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x1126eae80 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+1512273115161	geckodriver	INFO	geckodriver 0.19.1
+1512273115166	geckodriver	INFO	Listening on 127.0.0.1:61435
+1512273116266	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.wZjmlDy8C2Qg"
+1512273116849	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:51:57.823 plugin-container[60451:11861413] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa137, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512273118241	Marionette	INFO	Listening on port 61448
+1512273118279	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512273118364	Marionette	DEBUG	Register listener.js for window 2147483649
+1512273118418	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512273118793	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512273118794	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512273119452	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512273121882	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512273122005	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512273122135	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512273122135	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512273122225	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512273123281	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512273123397	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512273127259	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512273127260	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512273127339	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512273127834	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+2017-12-02 19:53:21.139 firefox-bin[60273:11813180] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x116ef1e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-02 19:53:21.832 firefox-bin[60273:11813180] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x116ef1e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-02 19:53:51.062 firefox-bin[60273:11813180] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x116ef1e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-02 19:54:03.080 firefox-bin[60273:11813180] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x116ef1e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-02 19:54:53.446 firefox-bin[60273:11813180] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x116ef1e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 60275, Chrome_ChildThread] WARNING: pipe error: Broken pipe: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 709
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+1512273516720	geckodriver	INFO	geckodriver 0.19.1
+1512273516724	geckodriver	INFO	Listening on 127.0.0.1:63201
+1512273517828	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.CeNVRygHoSuc"
+1512273518511	Marionette	INFO	Enabled via --marionette
+2017-12-02 19:58:39.493 plugin-container[60635:11939451] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa437, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512273519993	Marionette	INFO	Listening on port 63214
+1512273520038	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512273520125	Marionette	DEBUG	Register listener.js for window 2147483649
+1512273520160	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512273540368	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512273540368	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512273541083	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512273563537	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512273563704	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512273565829	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512273565830	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512273566011	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512273566716	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512273567551	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512273567799	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512273567800	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512273568077	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512273568576	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512273568640	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512273568795	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512273568795	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512273568871	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512273569318	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512273569381	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512327526827	geckodriver	INFO	geckodriver 0.19.1
+1512327526831	geckodriver	INFO	Listening on 127.0.0.1:62224
+1512327527971	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.aRz6dV2q9CHq"
+1512327528647	Marionette	INFO	Enabled via --marionette
+2017-12-03 10:58:49.536 plugin-container[64202:12154414] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa237, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512327530055	Marionette	INFO	Listening on port 62237
+1512327530144	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512327530196	Marionette	DEBUG	Register listener.js for window 2147483649
+1512327530243	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512327530469	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512327530469	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512327530649	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512327532975	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512327533068	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512327533157	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512327533157	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512327533237	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512327534011	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512327534110	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512327534202	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512327534203	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512327534266	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512327534698	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512327535183	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512327535292	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512327535292	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512327535359	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512327536135	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512327536229	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512327536358	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512327536358	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512327536425	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512327537376	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512327537495	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512327537602	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512327537603	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512327537745	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512327538659	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512327538763	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512327539028	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512327539029	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512327539125	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512327540060	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512327540203	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512327540312	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512327540313	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512327540389	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512327541220	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512327541326	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512327541414	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512327541415	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512327541491	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512327542377	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512327542483	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+2017-12-03 11:00:14.944 firefox-bin[64200:12154323] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x110fa0940 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-03 11:01:18.898 firefox-bin[64200:12154323] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x110fa0940 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-03 11:03:52.373 firefox-bin[64200:12154323] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x110fa0940 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+1512327834223	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512327834340	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512327834341	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512327834346	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483649"
+[Child 64202, Chrome_ChildThread] WARNING: pipe error: Broken pipe: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 709
+[Child 64202, Chrome_ChildThread] WARNING: pipe error: Broken pipe: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 709
+[Child 64202, Chrome_ChildThread] WARNING: pipe error: Broken pipe: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 709
+[Child 64202, Chrome_ChildThread] WARNING: pipe error: Broken pipe: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 709
+1512327896614	geckodriver	INFO	geckodriver 0.19.1
+1512327896618	geckodriver	INFO	Listening on 127.0.0.1:63767
+1512327897710	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.WF2NFaKpwdCq"
+1512327898207	Marionette	INFO	Enabled via --marionette
+2017-12-03 11:04:59.031 plugin-container[64383:12157883] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa22f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512327899487	Marionette	INFO	Listening on port 63780
+1512327899581	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512327899634	Marionette	DEBUG	Register listener.js for window 2147483649
+1512327899653	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512327899868	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512327899869	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512327900148	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512327900619	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512327900683	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512327900785	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512327900786	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512327900873	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512327901926	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512327902030	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512327902126	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512327902126	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512327902200	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512327903003	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512327903092	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512327903202	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512327903203	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512327903267	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512327903666	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512327904003	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512327904087	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512327904087	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512327904155	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512327904564	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512327904918	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512327905000	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512327905000	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512327905067	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512327906006	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512327906133	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512327906227	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512327906228	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512327906297	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512327906910	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512327907838	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512327907927	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512327907928	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512327908038	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512327908944	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512327909042	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+2017-12-03 11:06:29.625 firefox-bin[64382:12157812] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10f8d8e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-03 11:06:37.795 firefox-bin[64382:12157812] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10f8d8e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+1512327998615	Marionette	DEBUG	Register listener.js for window 2147483660
+2017-12-03 11:06:38.656 firefox-bin[64382:12157812] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10f8d8e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+1512327998958	Marionette	DEBUG	Register listener.js for window 4294967297
+2017-12-03 11:06:39.695 plugin-container[64429:12158867] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xaa37, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-03 11:07:06.185 firefox-bin[64382:12157812] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10f8d8e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-03 11:07:12.255 firefox-bin[64382:12157812] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10f8d8e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-03 11:08:58.442 firefox-bin[64382:12157812] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10f8d8e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-03 11:09:00.788 firefox-bin[64382:12157812] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10f8d8e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-03 11:09:11.494 firefox-bin[64382:12157812] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10f8d8e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-03 11:09:27.906 firefox-bin[64382:12157812] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10f8d8e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-03 11:18:10.700 firefox-bin[64382:12157812] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10f8d8e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-03 11:18:10.721 firefox-bin[64382:12157812] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10f8d8e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-03 11:18:25.995 firefox-bin[64382:12157812] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10f8d8e20 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+1512328775935	geckodriver	INFO	geckodriver 0.19.1
+1512328775940	geckodriver	INFO	Listening on 127.0.0.1:50839
+1512328777037	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.ZIXuTmDxdH3U"
+1512328777524	Marionette	INFO	Enabled via --marionette
+2017-12-03 11:19:38.396 plugin-container[64748:12166597] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa137, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512328778779	Marionette	INFO	Listening on port 50852
+1512328778799	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512328778862	Marionette	DEBUG	Register listener.js for window 2147483649
+1512328778886	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512328779092	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512328779092	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512328779264	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512328779822	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512328779876	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512328779976	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512328779976	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512328780047	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512328781079	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512328781179	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512328781262	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512328781262	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512328781309	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512328781692	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512328781739	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512328781821	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512328781821	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512328781899	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512328782693	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512328782786	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512328782879	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512328782879	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512328782948	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512328783382	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512328783729	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512328783830	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512328783830	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512328783898	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Mih%C3%A1ly%20Cs%C3%ADkszentmih%C3%A1lyi%22&sort=relevance"
+1512328784849	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Mih%C3%A1ly%20Cs%C3%ADkszentmih%C3%A1lyi%22&sort=relevance"
+1512329097821	geckodriver	INFO	geckodriver 0.19.1
+1512329097826	geckodriver	INFO	Listening on 127.0.0.1:52210
+1512329098941	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.cYMO2mcl2H6Z"
+1512329099485	Marionette	INFO	Enabled via --marionette
+2017-12-03 11:25:00.405 plugin-container[64892:12169348] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa237, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512329100766	Marionette	INFO	Listening on port 52223
+1512329100834	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512329100897	Marionette	DEBUG	Register listener.js for window 2147483649
+1512329100922	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329100924	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329100924	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329100930	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329100931	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329100948	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329101211	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329101211	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329101495	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512329101969	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512329102485	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512329102515	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512329102515	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512329102522	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329103345	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329103355	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329103515	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329103515	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329103603	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512329103938	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512329103992	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512329104002	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512329104002	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512329104009	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329104073	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329104082	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329104182	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329104182	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329104234	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512329104626	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512329104678	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512329104687	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512329104687	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512329104696	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329104769	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329104778	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329104908	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329104908	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329104952	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512329105300	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512329105350	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512329105359	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512329105359	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512329105367	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329105441	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329105451	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329105746	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329105746	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329105793	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512329106161	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512329106213	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512329106221	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512329106221	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512329106229	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329106299	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329106307	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329106399	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329106399	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329106450	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Mih%C3%A1ly%20Cs%C3%ADkszentmih%C3%A1lyi%22&sort=relevance"
+1512329106828	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Mih%C3%A1ly%20Cs%C3%ADkszentmih%C3%A1lyi%22&sort=relevance"
+1512329107200	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Mih%C3%A1ly%20Cs%C3%ADkszentmih%C3%A1lyi%22&sort=relevance"
+1512329107236	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Mih%C3%A1ly%20Cs%C3%ADkszentmih%C3%A1lyi%22&sort=relevance"
+1512329107236	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Mih%C3%A1ly%20Cs%C3%ADkszentmih%C3%A1lyi%22&sort=relevance"
+1512329107241	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329107495	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329107503	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329107590	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329107590	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329107652	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512329108900	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512329109161	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512329109183	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512329109184	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512329109196	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329109248	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329109260	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329109356	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329109356	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329109461	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512329109889	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512329109967	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512329109995	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512329109995	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512329110004	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329110067	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329110078	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329110214	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329110215	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329110352	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512329111367	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512329111461	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512329111467	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512329111467	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512329111471	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329111539	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329111549	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329111635	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329111636	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329111688	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Zindel%20V.%20Segal%22&sort=relevance"
+1512329112056	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Zindel%20V.%20Segal%22&sort=relevance"
+1512329335884	geckodriver	INFO	geckodriver 0.19.1
+1512329335888	geckodriver	INFO	Listening on 127.0.0.1:53263
+1512329337004	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.ZkEGyu48GKoY"
+1512329337522	Marionette	INFO	Enabled via --marionette
+2017-12-03 11:28:58.459 plugin-container[65024:12171677] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa237, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512329338824	Marionette	INFO	Listening on port 53276
+1512329338899	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512329338964	Marionette	DEBUG	Register listener.js for window 2147483649
+1512329338984	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329338987	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329338987	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329338991	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329338995	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329339023	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329339465	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329339466	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329341447	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/"
+1512329343109	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/"
+1512329398391	geckodriver	INFO	geckodriver 0.19.1
+1512329398395	geckodriver	INFO	Listening on 127.0.0.1:53649
+1512329399486	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.uuSyMAwOpOf3"
+1512329399940	Marionette	INFO	Enabled via --marionette
+2017-12-03 11:30:00.774 plugin-container[65082:12172582] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9f3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512329401162	Marionette	INFO	Listening on port 53666
+1512329401250	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512329401305	Marionette	DEBUG	Register listener.js for window 2147483649
+1512329401325	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329401328	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329401328	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329401336	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329401337	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329401366	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329401767	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329401767	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329403707	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/"
+1512329405136	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/"
+JavaScript warning: https://www.youtube.com/yts/jsbin/player-vfl8BSHQD/en_US/webgl.js, line 64: Error: WebGL warning: validateProgram: Implemented as a no-op on Mac to work around crashes.
+1512329406125	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.youtube.com/"
+1512329406136	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.youtube.com/"
+1512329406139	Marionette	DEBUG	Received DOM event "unload" for "https://www.youtube.com/"
+1512329406171	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329406172	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329406210	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329406372	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329406373	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329438246	geckodriver	INFO	geckodriver 0.19.1
+1512329438250	geckodriver	INFO	Listening on 127.0.0.1:53888
+1512329439326	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.7ENXKzYLJbD7"
+1512329439798	Marionette	INFO	Enabled via --marionette
+2017-12-03 11:30:40.572 plugin-container[65138:12173715] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa233, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512329441120	Marionette	INFO	Listening on port 53901
+1512329441196	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512329441268	Marionette	DEBUG	Register listener.js for window 2147483649
+1512329441291	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329441294	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329441294	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329441299	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329441303	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329441338	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329441533	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329441533	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329441906	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512329442448	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512329442517	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512329442534	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512329442535	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512329442542	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329443178	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329443190	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329443326	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329443326	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329443395	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512329444476	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512329444594	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512329444602	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512329444602	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512329444607	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329444681	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329444698	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329444869	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329444870	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329444944	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512329445324	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512329445383	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512329445396	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512329445396	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512329445403	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329445466	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329445481	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329445567	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329445567	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329445613	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512329445957	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512329446020	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512329446032	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512329446032	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512329446041	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329446103	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329446123	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329446208	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329446208	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329446262	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512329446648	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512329446709	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512329446722	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512329446722	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512329446727	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329446793	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329446807	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329446896	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329446896	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329446936	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512329447244	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512329447299	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512329447310	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512329447311	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512329447314	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329447381	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329447394	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329447484	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329447484	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329447526	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512329447833	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512329447887	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512329447899	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512329447899	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512329447903	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329447985	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329448009	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329448353	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329448353	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329448440	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512329449384	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512329449552	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512329449560	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512329449561	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512329449565	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329449629	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329449646	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329449756	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329449757	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329449917	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512329450770	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512329450877	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512329450883	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512329450883	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512329450889	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329450959	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329450978	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329451062	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329451062	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329451097	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512329451419	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512329451473	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512329451483	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512329451484	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512329451489	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329451555	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329451567	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329451657	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329451657	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329451697	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512329452020	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512329452074	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512329452084	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512329452084	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512329452090	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329452163	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329452175	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329452269	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329452269	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329452318	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512329453093	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512329453255	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512329453260	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512329453260	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512329453263	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329453348	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329453403	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329453493	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329453494	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329453529	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512329453832	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512329454147	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512329454188	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512329454189	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512329454197	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329454326	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329454336	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329454431	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329454431	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329454473	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512329454778	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512329454830	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512329454839	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512329454840	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512329454848	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329454916	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329454930	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329455060	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329455061	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329455134	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Mih%C3%A1ly%20Cs%C3%ADkszentmih%C3%A1lyi%22&sort=relevance"
+1512329455427	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Mih%C3%A1ly%20Cs%C3%ADkszentmih%C3%A1lyi%22&sort=relevance"
+1512329455902	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Mih%C3%A1ly%20Cs%C3%ADkszentmih%C3%A1lyi%22&sort=relevance"
+1512329455913	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Mih%C3%A1ly%20Cs%C3%ADkszentmih%C3%A1lyi%22&sort=relevance"
+1512329455913	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Mih%C3%A1ly%20Cs%C3%ADkszentmih%C3%A1lyi%22&sort=relevance"
+1512329455917	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329456189	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329456203	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329456296	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329456296	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329456351	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512329457179	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512329457276	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512329457281	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512329457281	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512329457287	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329457355	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329457365	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329457456	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329457456	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329457515	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512329458262	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512329458360	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512329458366	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512329458366	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512329458372	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329458435	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329458444	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329458576	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329458577	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329458696	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512329459482	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512329459615	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512329459621	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512329459622	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512329459626	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512329459703	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512329459721	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512329459813	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512329459813	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512329459874	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Zindel%20V.%20Segal%22&sort=relevance"
+1512329460310	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Zindel%20V.%20Segal%22&sort=relevance"
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 64892, Chrome_ChildThread] WARNING: pipe error: Broken pipe: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 709
+1512329838255	geckodriver	INFO	geckodriver 0.19.1
+1512329838259	geckodriver	INFO	Listening on 127.0.0.1:55743
+1512329839350	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.h6GgQGwYxdyr"
+1512329839916	Marionette	INFO	Enabled via --marionette
+2017-12-03 11:37:20.678 plugin-container[65326:12177468] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa237, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512329841188	Marionette	INFO	Listening on port 55756
+1512329841224	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512329841283	Marionette	DEBUG	Register listener.js for window 2147483649
+1512329896024	geckodriver	INFO	geckodriver 0.19.1
+1512329896029	geckodriver	INFO	Listening on 127.0.0.1:56023
+1512329897132	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.wDcR7UwIbfvi"
+1512329897633	Marionette	INFO	Enabled via --marionette
+2017-12-03 11:38:18.510 plugin-container[65370:12178223] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa137, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512329898877	Marionette	INFO	Listening on port 56036
+1512329898903	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512329898963	Marionette	DEBUG	Register listener.js for window 2147483649
+1512330270453	geckodriver	INFO	geckodriver 0.19.1
+1512330270457	geckodriver	INFO	Listening on 127.0.0.1:57620
+1512330271552	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.gnO05Xu0sRp8"
+1512330271981	Marionette	INFO	Enabled via --marionette
+2017-12-03 11:44:32.769 plugin-container[65534:12181863] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa137, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512330273157	Marionette	INFO	Listening on port 57633
+1512330273218	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512330273272	Marionette	DEBUG	Register listener.js for window 2147483649
+1512330291456	geckodriver	INFO	geckodriver 0.19.1
+1512330291462	geckodriver	INFO	Listening on 127.0.0.1:57761
+1512330292550	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.rMkqtsB2mAbM"
+1512330293060	Marionette	INFO	Enabled via --marionette
+2017-12-03 11:44:53.973 plugin-container[65561:12182381] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa237, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512330294413	Marionette	INFO	Listening on port 57774
+1512330294418	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512330294487	Marionette	DEBUG	Register listener.js for window 2147483649
+1512330294506	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330294508	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330294508	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330294511	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330294515	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330294539	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330294715	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330294715	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330294953	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512330295590	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512330298697	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512330298706	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512330298707	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Angela%20Lee%20Duckworth%22&sort=relevance"
+1512330298711	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330298790	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330298803	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330298921	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330298921	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330298996	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512330299792	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512330302900	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512330302915	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512330302916	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Barbara%20L.%20Fredrickson%22&sort=relevance"
+1512330302920	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330302999	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330303017	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330303118	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330303119	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330303194	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512330304016	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512330307124	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512330307139	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512330307139	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Carol%20S.%20Dweck%22&sort=relevance"
+1512330307144	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330307217	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330307235	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330307321	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330307322	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330307418	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512330307760	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512330310857	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512330310865	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512330310866	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Corey%20Lee%20M.%20Keyes%22&sort=relevance"
+1512330310871	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330310937	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330310951	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330311071	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330311072	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330311146	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512330311993	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512330315237	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512330315254	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512330315255	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Dacher%20J%20Keltner%22&sort=relevance"
+1512330315260	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330315332	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330315356	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330315479	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330315479	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330315565	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512330316577	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512330319674	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512330319681	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512330319681	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Daniel%20J%20Siegel%22&sort=relevance"
+1512330319686	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330319757	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330319776	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330319871	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330319872	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330319926	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512330320274	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512330323381	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512330323390	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512330323390	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Daniel%20T.%20Gilbert%22&sort=relevance"
+1512330323395	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330323463	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330323483	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330323600	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330323600	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330323701	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512330324185	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512330327287	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512330327296	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512330327297	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Emma%20M%20Seppala%22&sort=relevance"
+1512330327304	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330327369	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330327386	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330327473	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330327473	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330327547	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512330328249	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512330331342	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512330331356	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512330331358	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Frederic%20Luskin%22&sort=relevance"
+1512330331362	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330331424	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330331436	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330331555	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330331556	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330331631	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512330332464	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512330335575	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512330335584	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512330335584	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Jennifer%20L.%20Aaker%22&sort=relevance"
+1512330335591	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330335656	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330335671	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330335761	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330335762	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330335830	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512330336611	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512330339740	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512330339763	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512330339763	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Jon%20Kabat-Zinn%22&sort=relevance"
+1512330339768	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330339830	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330339846	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330339942	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330339942	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330340015	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512330340703	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512330343800	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512330343809	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512330343809	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Kelly%20M%20McGonigal%22&sort=relevance"
+1512330343814	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330343881	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330343897	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330343992	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330343992	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330344071	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512330344498	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512330347592	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512330347600	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512330347601	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Kristin%20D.%20Neff%22&sort=relevance"
+1512330347605	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330347710	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330347724	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330347837	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330347838	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330347941	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512330348856	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512330351959	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512330351967	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512330351968	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Martin%20E.%20P.%20Seligman%22&sort=relevance"
+1512330351973	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330352037	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330352049	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330352141	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330352141	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330352208	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Mih%C3%A1ly%20Cs%C3%ADkszentmih%C3%A1lyi%22&sort=relevance"
+1512330352954	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Mih%C3%A1ly%20Cs%C3%ADkszentmih%C3%A1lyi%22&sort=relevance"
+2017-12-03 11:51:50.434 firefox-bin[65324:12177391] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x10f173b80 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+1512330849217	geckodriver	INFO	geckodriver 0.19.1
+1512330849221	geckodriver	INFO	Listening on 127.0.0.1:60028
+1512330850317	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/1b/h52cyrl51tqg8dryz6pnq_zh0000gn/T/rust_mozprofile.9joYGsqlrH36"
+1512330850741	Marionette	INFO	Enabled via --marionette
+2017-12-03 11:54:11.508 plugin-container[65797:12187147] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa237, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512330851959	Marionette	INFO	Listening on port 60041
+1512330852069	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512330852123	Marionette	DEBUG	Register listener.js for window 2147483649
+1512330852141	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330852143	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330852143	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330852147	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330852150	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330852168	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330852343	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330852343	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330852617	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Mihaly%20Csikszentmihalyi%22&sort=relevance"
+1512330854843	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Mihaly%20Csikszentmihalyi%22&sort=relevance"
+1512330857949	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Mihaly%20Csikszentmihalyi%22&sort=relevance"
+1512330857958	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Mihaly%20Csikszentmihalyi%22&sort=relevance"
+1512330857958	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Mihaly%20Csikszentmihalyi%22&sort=relevance"
+1512330857964	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330858030	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330858043	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330858144	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330858145	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330858221	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512330859136	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512330862253	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512330862268	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512330862268	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Richard%20J.%20Davidson%22&sort=relevance"
+1512330862272	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330862347	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330862362	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330862443	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330862443	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330862520	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512330863308	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512330866408	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512330866423	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512330866424	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Robert%20A.%20Emmons%22&sort=relevance"
+1512330866428	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330866492	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330866509	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330866603	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330866604	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330866677	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512330867508	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512330870620	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512330870628	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512330870628	Marionette	DEBUG	Received DOM event "unload" for "https://www.semanticscholar.org/search?q=%22Sonja%20Lyubomirsky%22&sort=relevance"
+1512330870636	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:blank"
+1512330870698	Marionette	DEBUG	Received DOM event "pageshow" for "about:blank"
+1512330870718	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512330870832	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512330870832	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512330870907	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.semanticscholar.org/search?q=%22Zindel%20V.%20Segal%22&sort=relevance"
+1512330871702	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.semanticscholar.org/search?q=%22Zindel%20V.%20Segal%22&sort=relevance"
+2017-12-03 18:04:13.680 firefox-bin[65533:12181795] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x116964b80 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-03 18:04:16.660 firefox-bin[65533:12181795] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x116964b80 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+2017-12-03 18:04:17.429 firefox-bin[65533:12181795] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x116964b80 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
