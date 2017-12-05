@@ -8,18 +8,18 @@ f.close()
 
 # FOR SIMPLE TESTING PURPOSES:
 # papersDict = { "A-node": {
-# 	"title": "A",
+# 	"title": "A-node",
 # 	"year" :  1999,
 # 	"citations":  [{ "title": "A", "year" :  2017, "isInfluential": True}],
 # 	"references": [{ "title": "REF", "year" :  2017, "isInfluential": True}],
-# 	"influentialCitationCount": 123
+# 	"influentialCitationCount": 123,
 # 	"authors": [{"name": "authorA1"}, {"name": "authorA2"}]
 # 	}, "B-node-NOT-INFLUENTIAL": {
 # 	"title": "B-node-NOT-INFLUENTIAL",
 # 	"year" :  1999,
-# 	"citations":  [],
+# 	"citations":  [{"title": "A-node", "year" : 1999, "isInfluential": True}],
 # 	"references": [],
-# 	"influentialCitationCount": 123
+# 	"influentialCitationCount": 123,
 # 	"authors": [{"name": "authorB1"}]
 # 	}
 # }
@@ -71,7 +71,7 @@ def generateGraphData():
 	for paperTitle in papersDict:
 		paper = papersDict[paperTitle]
 		# add to node
-		hubPaperIndex = glob["updatingIndex"]
+		hubPaperIndex = nodeTitleToIndex[paperTitle]
 		# add all in going links (citations)
 		for citedPaper in paper["citations"]:
 			if nodeAdded(citedPaper):
