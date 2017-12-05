@@ -24,11 +24,24 @@ AUTHORS:
 "Zindel V. Segal"
 
 
-1. write some python to aggregate it, and filter it to what I need
-
-- convert to node and edge list
-
-
 2. use out-of-the-box graph vis to get a sense, run some basic stats
+- Try Gephi
+- Think of a way to reduce cluttr, filter to most important nodes (then format data for easy use)
+- Put it back in d3
+
+FOCUS IN<<<<<<<<<<<<
+What’s my goal right now?
+What’s my main focus for exploring, visualizing the data? That should drive how  I format it.
+VALUES:
+- sees changes, connections, growth happening over time
+- connect papers to key phrases, areas
+ACTION:
+	1. Every node needs
+		a. an array of its key phrases (after DOWNLOAD FINISHES)
+- remove clutter, show only what’s most important (this is an introduction tool, not a expert tool)
+
+
+
+3. Implement timeline slider (then timeline view)
 3. look over notes, ideas, existing work, decide what would be the COOLEST features, sketch em out.
 4. Make a schedule

@@ -1,54 +1,104 @@
 import json
 from pprint import pprint
 
+# IMPORT JSON FILE
 f = open("papers-by-title-SMALL.json", "r") # 123 articles (each which contain their own citations, refences)
 papersDict = json.loads(f.read())
 f.close()
 
-nodeArray = [] # [ {"name": "Myriel", "group": 1}, ... ]
-linkArray = [] # [ {"source": 1, "target": 0, "value": 1}, ... ]
-existingPaperTitles = set()
+# FOR SIMPLE TESTING PURPOSES:
+# papersDict = { "A-node": {
+# 	"title": "A",
+# 	"year" :  1999,
+# 	"citations":  [{ "title": "A", "year" :  2017, "isInfluential": True}],
+# 	"references": [{ "title": "REF", "year" :  2017, "isInfluential": True}],
+# 	"influentialCitationCount": 123
+# 	"authors": [{"name": "authorA1"}, {"name": "authorA2"}]
+# 	}, "B-node-NOT-INFLUENTIAL": {
+# 	"title": "B-node-NOT-INFLUENTIAL",
+# 	"year" :  1999,
+# 	"citations":  [],
+# 	"references": [],
+# 	"influentialCitationCount": 123
+# 	"authors": [{"name": "authorB1"}]
+# 	}
+# }
 
-
-
+nodeTitleToIndex = {} # # paper title -> index
+nodeDict  = {} # paper index -> node object
+linkArray = [] 
+existingPaperTitles = set() # avoids adding the same paper twice
 
 
 def generateGraphData():
-	currNodeArrayIndex = -1
-	def addNode(paper, groupNum, currNodeArrayIndex):
+	glob = {"updatingIndex": 0, "parsingCoreAuthors": True } # keeps track of what index in the array you're adding to (used as "node descriptor" for links)
+	def nodeAdded(paper):
 		paperTitle = paper["title"]
-		if paperTitle not in existingPaperTitles:
-			nodeArray.append({"label": paperTitle, "group": groupNum})
+		# FILTER: for citations/refs, keep only if isInfluential
+		influential = paper.get('isInfluential', True)
+		if influential and paperTitle not in existingPaperTitles:
+			nodeTitleToIndex[paperTitle] = glob["updatingIndex"]
+			newNode = {
+				"title": paperTitle, 
+				"year" : paper["year"],
+				"keyPhrases": [],
+				"index": glob["updatingIndex"]
+				}
+			if glob["parsingCoreAuthors"]:
+				newNode["influentialCitationCount"] = paper["influentialCitationCount"]
+				authorsDict = {}
+				for authorObj in paper["authors"]:
+					authorsDict[authorObj["name"]] = authorObj["name"] # redundant hash map for fast access when filtering
+				newNode["authors"] = authorsDict
+			nodeDict[glob["updatingIndex"]] = newNode
 			existingPaperTitles.add(paperTitle)
-			return currNodeArrayIndex + 1
-		else:
-			return currNodeArrayIndex
+			glob["updatingIndex"] += 1
+			return True
+		return influential
 
-	def addEdge(source, target, value):
-		linkArray.append({"source": source, "target": target, "value": value})
+	def addEdge(source, target):
+		linkArray.append({"source": source, "target": target})
 
+	# first add all papers authored by the core authors
+	# which contain the highest resolution info
 	for paperTitle in papersDict:
 		paper = papersDict[paperTitle]
-		# add to nodeArray
-		currNodeArrayIndex = addNode(paper, 1, currNodeArrayIndex)
-		currPaperIndex = currNodeArrayIndex
+		# add to node
+		nodeAdded(paper)
+
+	# then add all the core authors ref/citations (overlap won't overwrite)
+	glob["parsingCoreAuthors"] = False
+	for paperTitle in papersDict:
+		paper = papersDict[paperTitle]
+		# add to node
+		hubPaperIndex = glob["updatingIndex"]
 		# add all in going links (citations)
 		for citedPaper in paper["citations"]:
-			currNodeArrayIndex = addNode(citedPaper, 1, currNodeArrayIndex)
-			addEdge(currNodeArrayIndex, currPaperIndex, 1)
+			if nodeAdded(citedPaper):
+				addEdge(nodeTitleToIndex[citedPaper["title"]], hubPaperIndex)
 		# add all out going links (references)
 		for refPaper in paper["references"]:
-			currNodeArrayIndex = addNode(refPaper, 1, currNodeArrayIndex)
-			addEdge(currPaperIndex, currNodeArrayIndex, 1)
+			if nodeAdded(refPaper):
+				addEdge(hubPaperIndex, nodeTitleToIndex[refPaper["title"]])
 
-	pprint(len(nodeArray))
+	pprint(len(nodeDict))
 	pprint(len(linkArray))
 
-	graphData = { "nodes": nodeArray, "links": linkArray }
+	# convert Dict to List
+	nodeList = [None] * len(nodeDict)
+	for index in nodeDict.keys():
+		nodeList[index] = nodeDict[index]
 
+	# JSON FORMAT:
+	graphData = { "nodes": nodeList, "links": linkArray }
 	with open("graph-data.json", "w") as gd:
 		gd.write(json.dumps(graphData))
 		gd.close()
 
+	# CSV FORMAT: 
+	# with open("graph-data.csv", "w") as gd:
+	# 	for link in linkArray:
+	# 		gd.write("'" + str(link["source"]) + "','" + str(link["target"]) + "'\n")
+	# 	gd.close()
 
 generateGraphData()
