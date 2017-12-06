@@ -2,7 +2,7 @@ import json
 from pprint import pprint
 
 # IMPORT JSON FILE
-f = open("papers-by-title-SMALL.json", "r") # 123 articles (each which contain their own citations, refences)
+f = open("papers-by-title.json", "r") # 123 articles (each which contain their own citations, refences)
 papersDict = json.loads(f.read())
 f.close()
 

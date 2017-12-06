@@ -5,15 +5,16 @@ console.clear();
 const graphDataJSON = "data/graph-data.json"
       coreAuthorsJSON = "data/core-authors-list.json";
 
-const width = 900,
-      height = 900,
+const width = 1500,
+      height = 1100,
       minRadius = 10, // in pixles
       transitionTime = 750, // milliseconds
       centeringForce = 0.09,
       minYear = 1950, 
       maxYear = 2017,
       linkColor = "white",
-      nonCoreAuthorColor = "grey";
+      nonCoreAuthorColor = "grey",
+      nonCoreAuthorOpacity = 0.4;
 
 let graph, links, link, nodes, node, coreAuthorsById; // globals set within json request response
 
@@ -31,7 +32,7 @@ var yearToPix = d3.scaleLinear()
   .range([0, width]);
 
 let svg = d3
-  .select("body")
+  .select("#canvas")
   .append("svg")
   .attr("width", width)
   .attr("height", height);
@@ -63,12 +64,17 @@ d3.select('#DBH-range-slider').call(d3.slider().value([minYear, maxYear]).orient
     filterParams.yearRange.min = minMax[0];
     filterParams.yearRange.max = minMax[1]; 
     filterGraph();
-    d3.select('#DBH-range-slider-min').text(minMax[0]);
-    d3.select('#DBH-range-slider-max').text(minMax[1]);
+    d3.select('#DBH-range-slider-min').text(Math.round(minMax[0]));
+    d3.select('#DBH-range-slider-max').text(Math.round(minMax[1]));
   }));
 // add initial values
 d3.select('#DBH-range-slider-min').text(minYear);
 d3.select('#DBH-range-slider-max').text(maxYear);
+
+// tooltip
+var tooltip = d3.select("body").append("div")
+  .attr("class", "tooltip")
+  .style("opacity", 0);
 
 // 3. GET DATA AND SETUP INITIAL VIS DEPENDANT ON DATA -------------------------------------------------------------------------
 
@@ -97,8 +103,8 @@ d3.json(graphDataJSON, function(error, JSONdata) {
       .append("button")
       .html(authorId => coreAuthorsById[authorId])
       .attr("class", "core-author-button")
-      .attr("class", authorId => { makeAuthorActive(authorId, false); return "active"; })
-      .attr("id"   , authorId => "button-" + authorId)
+      .attr("id"   ,  authorId => "button-" + authorId)
+      .attr("class",  authorId => { makeAuthorActive(authorId, false); return "active"; })
       .attr("border", authorId => "2px solid " + authorColor[authorId])
       .on("click"   , authorId => {
         filterParams.authorIsActive[authorId] 
@@ -114,7 +120,7 @@ d3.json(graphDataJSON, function(error, JSONdata) {
       .enter()
       .append("line")
       .attr("stroke", linkColor)
-      .attr("stroke-width", 4);
+      .attr("stroke-width", 2);
 
     node = svg
       .append("g")
@@ -129,11 +135,25 @@ d3.json(graphDataJSON, function(error, JSONdata) {
        d.degree = links.filter(l => {
          return l.source == d.index || l.target == d.index;
        }).length;
-       d.radius = minRadius + (d.degree/2);
+       d.radius = minRadius + (d.degree/10);
        return d.radius;
       })
       .attr("fill", d => getCoreAuthorColor(d))
-      .on("mousedown", d => console.log(d))
+      .style("opacity", d => d.coreAuthor ? 1 : nonCoreAuthorOpacity)
+      .on("mouseover", function(d) {
+        console.log(d)
+         tooltip.transition()
+           .duration(200)
+           .style("opacity", .9);
+         tooltip.html(d.title + "<br><strong>" + (d.coreAuthor? coreAuthorsById[d.coreAuthor] : "") + "</strong>")
+           .style("left", (d3.event.pageX) + "px")
+           .style("top", (d3.event.pageY - 28) + "px");
+       })
+       .on("mouseout", function(d) {
+         tooltip.transition()
+           .duration(500)
+           .style("opacity", 0);
+       })
       .call(
         d3
           .drag()
@@ -176,7 +196,7 @@ const filterGraph = (filterName = false) => {
 }
 
 // Filter predicates
-const coreAuthor     = (node) => !filterParams.coreAuthorsOnly || node.authors;
+const coreAuthor     = (node) => !filterParams.coreAuthorsOnly || node.coreAuthor; 
 const yearInRange    = (node) => (node.year >= filterParams.yearRange.min) && 
                                  (node.year <= filterParams.yearRange.max);
 const authorSelected = (node) => !node.coreAuthor ||filterParams.authorIsActive[node.coreAuthor];
@@ -215,7 +235,22 @@ function restart() {
   .remove();
 
   node = node.enter().append("circle")
-    .attr("fill", (d) => getCoreAuthorColor(d))
+    .attr("fill", d => getCoreAuthorColor(d))
+    .style("opacity", d => d.coreAuthor ? 1 : nonCoreAuthorOpacity)
+    .on("mouseover", function(d) {
+      console.log(d)
+       tooltip.transition()
+         .duration(200)
+         .style("opacity", .9);
+       tooltip.html(d.title + "<br><strong>" + (d.coreAuthor? coreAuthorsById[d.coreAuthor] : "") + "</strong>")
+         .style("left", (d3.event.pageX) + "px")
+         .style("top", (d3.event.pageY - 28) + "px");
+     })
+     .on("mouseout", function(d) {
+       tooltip.transition()
+         .duration(500)
+         .style("opacity", 0);
+     })
     .call(function(node) { node.transition().duration(transitionTime).attr("r", d => d.radius); })
     .merge(node);
 

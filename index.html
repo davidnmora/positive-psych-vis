@@ -10,17 +10,20 @@
 </head>
 
 <body>
-
+<div id="container">
+	<h1>Positive Psychology over Time and Author</h1>
 	<div id="core-authors-list-container"></div>
 
-	<button type="button" onclick="filterGraph('toggleCoreAuthors')">Toggle non- Core Authors on and off</button>
+	<button class="core-author-toggle" type="button" onclick="filterGraph('toggleCoreAuthors')">Toggle non-Core Authors Papers</button>
 	<h2>Positive Psychology Over Time:</h2>
-	<h3>
-		from: <span id="DBH-range-slider-max"></span> 
+	<h2>
+		between: <span id="DBH-range-slider-max"></span> 
 		<br>
-		to:  <span id="DBH-range-slider-min"></span> 
-	</h3>
+		........and: <span id="DBH-range-slider-min"></span> 
+	</h2>
 	<div id="DBH-range-slider"></div>
+	<div id="canvas"></div>
+</div>
 
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<script src="js/d3.slider.js"></script>
