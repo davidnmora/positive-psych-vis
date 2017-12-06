@@ -2,3 +2,17 @@
   stroke-width: 1;
   stroke: black;
 }
+
+
+/* sliders */
+.d3-slider-horizontal {
+  width: 700px;
+}
+
+#POI-sliders.active {
+  opacity: 1;
+}
+
+#POI-sliders {
+  opacity: 0.3;
+}

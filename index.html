@@ -4,13 +4,23 @@
 	<meta charset="UTF-8">
 	<title>Force layout with positive psych data</title>
 
+	<link rel="stylesheet" href='css/d3.slider.css'></link>
 	<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
-	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<button type="button" onclick="filterGraph('toggleCoreAuthors')">Toggle non- Core Authors on and off</button>
+	<h2>Tree Diameter Range:</h2>
+	<h3>
+		max: <span id="DBH-range-slider-max"></span> inches
+		<br>
+		min: <span id="DBH-range-slider-min"></span> inches
+	</h3>
+	<div id="DBH-range-slider"></div>
 
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="js/d3.slider.js"></script>
 	<script  src="js/index.js"></script>
 
 </body>
