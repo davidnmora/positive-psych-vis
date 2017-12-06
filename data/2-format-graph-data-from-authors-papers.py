@@ -6,6 +6,11 @@ f = open("papers-by-title-SMALL.json", "r") # 123 articles (each which contain t
 papersDict = json.loads(f.read())
 f.close()
 
+# RETRIEVE CORE AUTHORS
+f = open("core-authors-list.json", "r") # 123 articles (each which contain their own citations, refences)
+coreAuthors = json.loads(f.read())
+f.close()
+
 # FOR SIMPLE TESTING PURPOSES:
 # papersDict = { "A-node": {
 # 	"title": "A-node",
@@ -49,7 +54,9 @@ def generateGraphData():
 				newNode["influentialCitationCount"] = paper["influentialCitationCount"]
 				authorsDict = {}
 				for authorObj in paper["authors"]:
-					authorsDict[authorObj["name"]] = authorObj["name"] # redundant hash map for fast access when filtering
+					authorsDict[authorObj["authorId"]] = authorObj["name"] # hash map for fast access when filtering
+					if authorObj["authorId"] in coreAuthors:
+						newNode["coreAuthor"] = authorObj["authorId"] # ISSUE: if two core authors on same paper, only list first as singular coreAuthor
 				newNode["authors"] = authorsDict
 			nodeDict[glob["updatingIndex"]] = newNode
 			existingPaperTitles.add(paperTitle)

@@ -2,7 +2,8 @@ console.clear();
 
 // 1. GLOBAL VARIALBES -------------------------------------------------------------------------
 
-const graphDataJSON = "data/graph-data.json";
+const graphDataJSON = "data/graph-data.json"
+      coreAuthorsJSON = "data/core-authors-list.json";
 
 const width = 900,
       height = 900,
@@ -10,13 +11,19 @@ const width = 900,
       transitionTime = 750, // milliseconds
       centeringForce = 0.09,
       minYear = 1950, 
-      maxYear = 2017;
+      maxYear = 2017,
+      linkColor = "white",
+      nonCoreAuthorColor = "grey";
 
-let graph, links, link, nodes, node; // globals set within json request response
+let graph, links, link, nodes, node, coreAuthorsById; // globals set within json request response
+
+let color = d3.scaleOrdinal(d3.schemeCategory20); 
+    authorColor = {};
 
 let filterParams = {
   coreAuthorsOnly: false,
-  yearRange: { "min": minYear, "max": maxYear }
+  yearRange: { "min": minYear, "max": maxYear },
+  authorIsActive: {}
 }
 
 var yearToPix = d3.scaleLinear()
@@ -29,7 +36,6 @@ let svg = d3
   .attr("width", width)
   .attr("height", height);
 
-let color = d3.scaleOrdinal(d3.schemeCategory20); // TO DO: USE OR DELETE
 
 // 2. SETUP SIMULATION AND SLIDER -------------------------------------------------------------------------
 
@@ -64,7 +70,7 @@ d3.select('#DBH-range-slider').call(d3.slider().value([minYear, maxYear]).orient
 d3.select('#DBH-range-slider-min').text(minYear);
 d3.select('#DBH-range-slider-max').text(maxYear);
 
-// 3. GET DATA AND SETUP INITIAL VIS -------------------------------------------------------------------------
+// 3. GET DATA AND SETUP INITIAL VIS DEPENDANT ON DATA -------------------------------------------------------------------------
 
 d3.json(graphDataJSON, function(error, JSONdata) {
   if (error) throw error;
@@ -74,47 +80,74 @@ d3.json(graphDataJSON, function(error, JSONdata) {
   links = graph.links;
   nodes = graph.nodes;
   nodes.forEach(d => { d.x = d.cx = d.y = d.cy = yearToPix(d.year) });
-  
 
-  link = svg
-    .append("g")
-    .attr("class", "links")
-    .selectAll("line")
-    .data(links, d => d.id)
-    .enter()
-    .append("line")
-    .attr("stroke", "black")
-    .attr("stroke-width", 4);
-
-  node = svg
-    .append("g")
-    .attr("class", "nodes")
-    .selectAll("circle")
-    .data(nodes, d => d.id)
-    .enter()
-    .append("circle")
-    .attr("cx", d => d.cx)
-    .attr("cy", d => d.cy)
-    .attr("r",  d => {      
-     d.degree = links.filter(l => {
-       return l.source == d.index || l.target == d.index;
-     }).length;
-     d.radius = minRadius + (d.degree/2);
-     return d.radius;
+    // create core-authors list buttons via a JSON request
+  d3.json(coreAuthorsJSON, function(error, JSONdata) {
+    if (error) throw error;
+    coreAuthorsById = JSONdata;
+    Object.keys(coreAuthorsById).forEach((authorId, i) => { 
+      authorColor[authorId] = color(i); 
+      filterParams.authorIsActive[authorId] = true; 
     })
-    .attr("fill", d => color(1))
-    .on("mousedown", d => console.log(d))
-    .call(
-      d3
-        .drag()
-        .on("start", dragstarted)
-        .on("drag", dragged)
-        .on("end", dragended)
-      );
 
-  simulation.nodes(nodes).on("tick", ticked);
+    d3.select("#core-authors-list-container")
+      .selectAll("div")
+      .data(Object.keys(coreAuthorsById))
+      .enter()
+      .append("button")
+      .html(authorId => coreAuthorsById[authorId])
+      .attr("class", "core-author-button")
+      .attr("class", authorId => { makeAuthorActive(authorId, false); return "active"; })
+      .attr("id"   , authorId => "button-" + authorId)
+      .attr("border", authorId => "2px solid " + authorColor[authorId])
+      .on("click"   , authorId => {
+        filterParams.authorIsActive[authorId] 
+          ? makeAuthorInactive(authorId) 
+          : makeAuthorActive(authorId);
+      })
 
-  simulation.force("link").links(links);
+    link = svg
+      .append("g")
+      .attr("class", "links")
+      .selectAll("line")
+      .data(links)
+      .enter()
+      .append("line")
+      .attr("stroke", linkColor)
+      .attr("stroke-width", 4);
+
+    node = svg
+      .append("g")
+      .attr("class", "nodes")
+      .selectAll("circle")
+      .data(nodes, d => d.id)
+      .enter()
+      .append("circle")
+      .attr("cx", d => d.cx)
+      .attr("cy", d => d.cy)
+      .attr("r",  d => {      
+       d.degree = links.filter(l => {
+         return l.source == d.index || l.target == d.index;
+       }).length;
+       d.radius = minRadius + (d.degree/2);
+       return d.radius;
+      })
+      .attr("fill", d => getCoreAuthorColor(d))
+      .on("mousedown", d => console.log(d))
+      .call(
+        d3
+          .drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended)
+        );
+
+    simulation.nodes(nodes).on("tick", ticked);
+
+    simulation.force("link").links(links);
+
+
+  }) // closes core authors JSON retrieval & button setup
 
 // ____________
 
@@ -129,15 +162,11 @@ d3.json(graphDataJSON, function(error, JSONdata) {
       .attr("cx", d => d.x = Math.max(d.radius, Math.min(width - d.radius, d.x)))
       .attr("cy", d => d.y = Math.max(d.radius, Math.min(height - d.radius, d.y)));
   }
-}); // closes JSON call
+}); // closes graph data JSON call
 
 // 3. HANDLE FILTERING INTERACTIONS -------------------------------------------------------------------------
 
-// setTimeout(function() {
-//   nodes = nodes.filter(node => node.authors);
-//   links = links.filter(link => link.source.authors && link.target.authors); # coreAuthors have the author property, non-coreAuthors don't
-//   restart();
-// }, 2500);
+const getCoreAuthorColor = (d) => d.coreAuthor ? authorColor[d.coreAuthor] : nonCoreAuthorColor;
 
 const filterGraph = (filterName = false) => {
   if (filterName == "toggleCoreAuthors") filterParams.coreAuthorsOnly = !filterParams.coreAuthorsOnly;
@@ -146,17 +175,32 @@ const filterGraph = (filterName = false) => {
   restart();
 }
 
-const coreAuthor = (node) => !filterParams.coreAuthorsOnly || node.authors;
-const yearInRange   = (node) => (node.year >= filterParams.yearRange.min) && 
-                                (node.year <= filterParams.yearRange.max);
+// Filter predicates
+const coreAuthor     = (node) => !filterParams.coreAuthorsOnly || node.authors;
+const yearInRange    = (node) => (node.year >= filterParams.yearRange.min) && 
+                                 (node.year <= filterParams.yearRange.max);
+const authorSelected = (node) => !node.coreAuthor ||filterParams.authorIsActive[node.coreAuthor];
 
-const shouldKeepNode = (node) => {
-  return coreAuthor(node) && yearInRange(node);
+// High-level filters
+const shouldKeepNode = (node) => coreAuthor(node) && yearInRange(node) && authorSelected(node);
+const shouldKeepLink = (link) => shouldKeepNode(link.source) && shouldKeepNode(link.target);
+
+const makeAuthorActive = (authorId, shouldFilterGraphAfter = true) => {
+  d3.select("#button-" + authorId)
+    .style("color",  "white")
+    .style("background", authorColor[authorId])
+    .classed("active", true)
+  filterParams.authorIsActive[authorId] = true;
+  if (shouldFilterGraphAfter) filterGraph();
 }
 
-const shouldKeepLink = (link) => {
-  return coreAuthor(link.source) && yearInRange(link.source) && 
-         coreAuthor(link.target) && yearInRange(link.target);
+const makeAuthorInactive = (authorId) => {
+  d3.select("#button-" + authorId)
+    .style("color",  authorColor[authorId])
+    .style("background", "none")
+    .classed("active", false)
+  filterParams.authorIsActive[authorId] = false;
+  filterGraph();
 }
 
 // 3. UPDATE GRAPH AFTER FILTERING DATA -------------------------------------------------------------------------
@@ -171,12 +215,12 @@ function restart() {
   .remove();
 
   node = node.enter().append("circle")
-    .attr("fill", function(d) { return color(1); })
+    .attr("fill", (d) => getCoreAuthorColor(d))
     .call(function(node) { node.transition().duration(transitionTime).attr("r", d => d.radius); })
     .merge(node);
 
   // Apply the general update pattern to the links.
-  link = link.data(links, d => d.id);
+  link = link.data(links);
 
   // Keep the exiting links connected to the moving remaining nodes.
   link.exit().transition().duration(transitionTime)
@@ -189,7 +233,7 @@ function restart() {
 
   link = link.enter().append("line")
     .call(function(link) { link.transition().attr("stroke-opacity", 1); })
-    .attr("stroke", "black")
+    .attr("stroke", linkColor)
     .attr("stroke-width", 4)
     .merge(link);
 

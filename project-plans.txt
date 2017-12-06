@@ -41,7 +41,39 @@ ACTION:
 - remove clutter, show only what’s most important (this is an introduction tool, not a expert tool)
 
 
+Problem: A clear statement of the problem your project addresses.
+“scientific publication has been extended far beyond our present ability to make real use of the record.”
+-Vannevar Bush 
+Especially true for noobs without any prior context who face 2.5 million new papers each year. 
+Understanding of how research papers, authors, and applications fit together remains trapped inside the minds of experts — how do we give novices that sort of perspective on the field's "knowledge landscape" (without years of reading papers)?
 
-3. Implement timeline slider (then timeline view)
-3. look over notes, ideas, existing work, decide what would be the COOLEST features, sketch em out.
-4. Make a schedule
+
+Motivation: An explanation of why the problem is interesting and what makes it difficult to solve.
+Young researchers and scholars core challenge is to understand an academic fields' larger context and ecosystem. 
+However, vitually all resources display information linearly, statically, and without context. 
+Further, little aggregate or associative data sources exist -- the few that do typically prove overly complex and cluttered.
+
+Approach: A description of the techniques or algorithms you used to solve the problem.
+Selecting positive psychology as the field to focus on, I consulted several experts to settle on a list of 19 of the most core authors for new comers know.
+I used Semantic Scholar's API to assemble meta data on every paper written, cited, or referenced by the 19 core authors. To reduce overwhelm, I filtered those further by including only papers which were highly influential on the field or other papers in the graph, as measured by Semantic Scholar.
+
+Results: Screenshots and a working demo of the system you built.
+
+
+Future Work: An explanation of how the work could be extended.
+Two major areas of testing in and optimising for exist:
+1. Academic courses: 
+Might this be a useful tool for instructors, and how might they integrate it into their classes?
+What are the core needs, questions, and uses of students?
+2. Onboarding beginning researchers:
+Particularly for undergrads starting in a lab, how might this tool give larger conceptual and methadological context and reference for day-to-day work?
+
+
+
+
+
+
+
+
+
+

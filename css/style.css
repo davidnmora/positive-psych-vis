@@ -3,6 +3,51 @@
   stroke: black;
 }
 
+/* buttons. Citation: Baltazar Gomez on CodePen */
+/* Colors */
+body {
+  margin: 0;
+  background-color: #090812;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+
+#buttons {
+  text-align: center;
+  color: #fff;
+}
+
+button {
+  outline: 0;
+  border: 0;
+  background: none;
+  margin: 25px;
+  padding: 10px 35px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+
+}
+
+button.blue {
+  color: #22a7f0;
+}
+button.blue.active,
+button.blue:active,
+button.blue:hover {
+  background: #22a7f0;
+  color: #fff;
+  border: 2px solid #22a7f0;
+}
+
+
+
+
 
 /* sliders */
 .d3-slider-horizontal {

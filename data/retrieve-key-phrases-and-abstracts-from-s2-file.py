@@ -9,7 +9,7 @@ f.close()
 keyPhrasesAndAbstractsDict = {}
 mySubsetOfPapersTitles = mySubsetOfPapersDict.keys()
 
-with open("all-papers-on-s2-SMALL.json", "r") as allPapersFile:
+with open("all-papers-on-s2.json", "r") as allPapersFile:
 	for line in allPapersFile:
 		# make json
 		paper = json.loads(line)
@@ -22,6 +22,6 @@ with open("all-papers-on-s2-SMALL.json", "r") as allPapersFile:
 			}
 
 
-keyPhrasesAndAbstractsFile = open("key-phrases-and-abstracsts-by-title.json", "w")
+keyPhrasesAndAbstractsFile = open("key-phrases-and-abstracts-by-title.json", "w")
 keyPhrasesAndAbstractsFile.write(json.dumps(keyPhrasesAndAbstractsDict))
 keyPhrasesAndAbstractsFile.close()
