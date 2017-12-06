@@ -35,7 +35,7 @@ let color = d3.scaleOrdinal(d3.schemeCategory20); // TO DO: USE OR DELETE
 
 let simulation = d3
   .forceSimulation()
-  .force("link", d3.forceLink())
+  .force("link", d3.forceLink().id(node => node.id))
   .force("charge", d3.forceManyBody().strength(-20))
   .force("center", d3.forceCenter(width / 2, height / 2))
   .force("x", d3.forceX(width  / 2).strength(centeringForce))
@@ -80,7 +80,7 @@ d3.json(graphDataJSON, function(error, JSONdata) {
     .append("g")
     .attr("class", "links")
     .selectAll("line")
-    .data(links)
+    .data(links, d => d.id)
     .enter()
     .append("line")
     .attr("stroke", "black")
@@ -90,7 +90,7 @@ d3.json(graphDataJSON, function(error, JSONdata) {
     .append("g")
     .attr("class", "nodes")
     .selectAll("circle")
-    .data(nodes)
+    .data(nodes, d => d.id)
     .enter()
     .append("circle")
     .attr("cx", d => d.cx)
@@ -164,19 +164,19 @@ const shouldKeepLink = (link) => {
 function restart() {
   simulation.stop();
   // Apply the general update pattern to the nodes.
-  node = node.data(nodes); 
+  node = node.data(nodes, d => d.id); 
 
   node.exit().transition().duration(transitionTime)
   .attr("r", 0)
   .remove();
 
   node = node.enter().append("circle")
-    // .attr("fill", function(d) { return color(d.id); })
+    .attr("fill", function(d) { return color(1); })
     .call(function(node) { node.transition().duration(transitionTime).attr("r", d => d.radius); })
     .merge(node);
 
   // Apply the general update pattern to the links.
-  link = link.data(links);
+  link = link.data(links, d => d.id);
 
   // Keep the exiting links connected to the moving remaining nodes.
   link.exit().transition().duration(transitionTime)

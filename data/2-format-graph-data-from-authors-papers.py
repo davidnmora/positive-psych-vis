@@ -42,7 +42,8 @@ def generateGraphData():
 				"title": paperTitle, 
 				"year" : paper["year"],
 				"keyPhrases": [],
-				"index": glob["updatingIndex"]
+				"index": glob["updatingIndex"],
+				"id": glob["updatingIndex"]
 				}
 			if glob["parsingCoreAuthors"]:
 				newNode["influentialCitationCount"] = paper["influentialCitationCount"]
