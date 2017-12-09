@@ -82,13 +82,13 @@ def generateGraphData():
 		for citedPaper in paper["citations"]:
 			nodeAdded(citedPaper)
 			paperId = citedPaper["paperId"]
-			if paperId in paperIdToIndex:
+			if paperId in paperIdToIndex and citedPaper.get("isInfluential", True):
 				addEdge(paperIdToIndex[paperId], hubPaperIndex)
 		# add all out going links (references)
 		for refPaper in paper["references"]:
 			nodeAdded(refPaper)
 			paperId = refPaper["paperId"]
-			if paperId in paperIdToIndex:
+			if paperId in paperIdToIndex and refPaper.get("isInfluential", True):
 				addEdge(hubPaperIndex, paperIdToIndex[paperId])
 
 	pprint(len(nodeDict))
