@@ -29,27 +29,26 @@ f.close()
 # 	}
 # }
 
-nodeTitleToIndex = {} # # paper title -> index
+paperIdToIndex = {} # # paper title -> index
 nodeDict  = {} # paper index -> node object
 linkArray = [] 
-existingPaperTitles = set() # avoids adding the same paper twice
-
 
 def generateGraphData():
 	glob = {"updatingIndex": 0, "parsingCoreAuthors": True } # keeps track of what index in the array you're adding to (used as "node descriptor" for links)
 	def nodeAdded(paper):
-		paperTitle = paper["title"]
+		paperId = paper["paperId"]
 		# FILTER: for citations/refs, keep only if isInfluential
 		influential = paper.get('isInfluential', True)
-		if influential and paperTitle not in existingPaperTitles:
-			nodeTitleToIndex[paperTitle] = glob["updatingIndex"]
+		if influential and paperId not in paperIdToIndex:
+			paperIdToIndex[paperId] = glob["updatingIndex"]
 			newNode = {
-				"title": paperTitle, 
+				"title": paper["title"], 
 				"year" : paper["year"],
 				"keyPhrases": [],
 				"index": glob["updatingIndex"],
-				"id": glob["updatingIndex"]
-				}
+				"id": glob["updatingIndex"],
+				"paperId": paper["paperId"]
+			}
 			if glob["parsingCoreAuthors"]:
 				newNode["influentialCitationCount"] = paper["influentialCitationCount"]
 				authorsDict = {}
@@ -59,7 +58,6 @@ def generateGraphData():
 						newNode["coreAuthor"] = authorObj["authorId"] # ISSUE: if two core authors on same paper, only list first as singular coreAuthor
 				newNode["authors"] = authorsDict
 			nodeDict[glob["updatingIndex"]] = newNode
-			existingPaperTitles.add(paperTitle)
 			glob["updatingIndex"] += 1
 			return True
 		return influential
@@ -79,15 +77,19 @@ def generateGraphData():
 	for paperTitle in papersDict:
 		paper = papersDict[paperTitle]
 		# add to node
-		hubPaperIndex = nodeTitleToIndex[paperTitle]
+		hubPaperIndex = paperIdToIndex[paper["paperId"]]
 		# add all in going links (citations)
 		for citedPaper in paper["citations"]:
-			if nodeAdded(citedPaper):
-				addEdge(nodeTitleToIndex[citedPaper["title"]], hubPaperIndex)
+			nodeAdded(citedPaper)
+			paperId = citedPaper["paperId"]
+			if paperId in paperIdToIndex:
+				addEdge(paperIdToIndex[paperId], hubPaperIndex)
 		# add all out going links (references)
 		for refPaper in paper["references"]:
-			if nodeAdded(refPaper):
-				addEdge(hubPaperIndex, nodeTitleToIndex[refPaper["title"]])
+			nodeAdded(refPaper)
+			paperId = refPaper["paperId"]
+			if paperId in paperIdToIndex:
+				addEdge(hubPaperIndex, paperIdToIndex[paperId])
 
 	pprint(len(nodeDict))
 	pprint(len(linkArray))
