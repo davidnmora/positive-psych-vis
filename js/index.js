@@ -1,5 +1,10 @@
 console.clear();
 
+document.querySelector("#coreAuthorsSwitch").addEventListener("click", () => {
+  filterParams.coreAuthorsOnly = !filterParams.coreAuthorsOnly
+  filterGraph()
+})
+
 // 1. GLOBAL VARIALBES -------------------------------------------------------------------------
 
 const graphDataJSON = "data/graph-data.json"
@@ -16,13 +21,13 @@ const width = 1500,
       nonCoreAuthorColor = "grey",
       nonCoreAuthorOpacity = 0.4;
 
-let graph, links, link, nodes, node, coreAuthorsById; // globals set within json request response
+let graph, links, link, nodes, node, simulation, coreAuthorsById; // globals set within json request response
 
 let color = d3.scaleOrdinal(d3.schemeCategory20); 
     authorColor = {};
 
 let filterParams = {
-  coreAuthorsOnly: false,
+  coreAuthorsOnly: true,
   yearRange: { "min": minYear, "max": maxYear },
   authorIsActive: {}
 }
@@ -38,16 +43,7 @@ let svg = d3
   .attr("height", height);
 
 
-// 2. SETUP SIMULATION AND SLIDER -------------------------------------------------------------------------
-
-let simulation = d3
-  .forceSimulation()
-  .force("link", d3.forceLink().id(node => node.id))
-  .force("charge", d3.forceManyBody().strength(-20))
-  .force("center", d3.forceCenter(width / 2, height / 2))
-  .force("x", d3.forceX(width  / 2).strength(centeringForce))
-  .force("y", d3.forceY(height / 2).strength(centeringForce))
-  .velocityDecay(0.8);
+// 2. SETUP SLIDER -------------------------------------------------------------------------
 
 
 // create slider
@@ -78,120 +74,91 @@ var tooltip = d3.select("body").append("div")
 
 // 3. GET DATA AND SETUP INITIAL VIS DEPENDANT ON DATA -------------------------------------------------------------------------
 
-d3.json(graphDataJSON, function(error, JSONdata) {
-  if (error) throw error;
-  graph = JSONdata
+const radiusFromNode = d => {    
+  if(d.radius !== undefined) return d.radius  
+  d.degree = graph.links.filter(l => {
+    return l.source == d.id || l.target == d.id;
+  }).length;
+  d.radius = minRadius + (d.degree/10);
+  return d.radius;
+}
+
+const nodeMouseOver = function(d) {
+  console.log(d)
+  tooltip.transition()
+    .duration(200)
+    .style("opacity", .9);
+  tooltip.html(d.title + "<br><strong>" + (d.coreAuthor? coreAuthorsById[d.coreAuthor] : "") + "</strong>")
+    .style("left", (d3.event.pageX) + "px")
+    .style("top", (d3.event.pageY - 28) + "px");
+}
+
+const nodeMouseOut = function(d) {
+  tooltip.transition()
+    .duration(500)
+    .style("opacity", 0);
+}
+
+Promise.all([
+  new Promise((res,rej) => d3.json(graphDataJSON, function(error, JSONdata) { if(error) { rej(error) } else { res(JSONdata) } })),
+  new Promise((res,rej) => d3.json(coreAuthorsJSON, function(error, JSONdata) { if(error) { rej(error) } else { res(JSONdata) } }))  
+]).then(([ _graph, _coreAuthorsById ]) => {
+  graph = _graph
+  graph.nodesById = {}
+  for (const node of graph.nodes) {
+    graph.nodesById[node.id] = node
+  }
+  for (const link of graph.links) {
+    link.sourceId = link.source
+    link.targetId = link.target
+  }
+  coreAuthorsById = _coreAuthorsById
   console.log(graph);
 
-  links = graph.links;
-  nodes = graph.nodes;
-  nodes.forEach(d => { d.x = d.cx = d.y = d.cy = yearToPix(d.year) });
+  // create core-authors list buttons via a JSON request
+  Object.keys(coreAuthorsById).forEach((authorId, i) => { 
+    authorColor[authorId] = color(i); 
+    filterParams.authorIsActive[authorId] = true; 
+  })
 
-    // create core-authors list buttons via a JSON request
-  d3.json(coreAuthorsJSON, function(error, JSONdata) {
-    if (error) throw error;
-    coreAuthorsById = JSONdata;
-    Object.keys(coreAuthorsById).forEach((authorId, i) => { 
-      authorColor[authorId] = color(i); 
-      filterParams.authorIsActive[authorId] = true; 
+  d3.select("#core-authors-list-container")
+    .selectAll("div")
+    .data(Object.keys(coreAuthorsById))
+    .enter()
+    .append("button")
+    .html(authorId => coreAuthorsById[authorId])
+    .attr("class", "core-author-button")
+    .attr("id"   ,  authorId => "button-" + authorId)
+    .attr("class",  authorId => { makeAuthorActive(authorId, false); return "active"; })
+    .attr("border", authorId => "2px solid " + authorColor[authorId])
+    .on("click"   , authorId => {
+      filterParams.authorIsActive[authorId] 
+        ? makeAuthorInactive(authorId) 
+        : makeAuthorActive(authorId);
     })
 
-    d3.select("#core-authors-list-container")
-      .selectAll("div")
-      .data(Object.keys(coreAuthorsById))
-      .enter()
-      .append("button")
-      .html(authorId => coreAuthorsById[authorId])
-      .attr("class", "core-author-button")
-      .attr("id"   ,  authorId => "button-" + authorId)
-      .attr("class",  authorId => { makeAuthorActive(authorId, false); return "active"; })
-      .attr("border", authorId => "2px solid " + authorColor[authorId])
-      .on("click"   , authorId => {
-        filterParams.authorIsActive[authorId] 
-          ? makeAuthorInactive(authorId) 
-          : makeAuthorActive(authorId);
-      })
-
-    link = svg
-      .append("g")
-      .attr("class", "links")
-      .selectAll("line")
-      .data(links)
-      .enter()
-      .append("line")
-      .attr("stroke", linkColor)
-      .attr("stroke-width", 2);
-
-    node = svg
-      .append("g")
-      .attr("class", "nodes")
-      .selectAll("circle")
-      .data(nodes, d => d.id)
-      .enter()
-      .append("circle")
-      .attr("cx", d => d.cx)
-      .attr("cy", d => d.cy)
-      .attr("r",  d => {      
-       d.degree = links.filter(l => {
-         return l.source == d.index || l.target == d.index;
-       }).length;
-       d.radius = minRadius + (d.degree/10);
-       return d.radius;
-      })
-      .attr("fill", d => getCoreAuthorColor(d))
-      .style("opacity", d => d.coreAuthor ? 1 : nonCoreAuthorOpacity)
-      .on("mouseover", function(d) {
-        console.log(d)
-         tooltip.transition()
-           .duration(200)
-           .style("opacity", .9);
-         tooltip.html(d.title + "<br><strong>" + (d.coreAuthor? coreAuthorsById[d.coreAuthor] : "") + "</strong>")
-           .style("left", (d3.event.pageX) + "px")
-           .style("top", (d3.event.pageY - 28) + "px");
-       })
-       .on("mouseout", function(d) {
-         tooltip.transition()
-           .duration(500)
-           .style("opacity", 0);
-       })
-      .call(
-        d3
-          .drag()
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended)
-        );
-
-    simulation.nodes(nodes).on("tick", ticked);
-
-    simulation.force("link").links(links);
-
-
-  }) // closes core authors JSON retrieval & button setup
-
-// ____________
-
-  function ticked() {
-    link
-      .attr("x1", d => d.source.x)
-      .attr("y1", d => d.source.y)
-      .attr("x2", d => d.target.x)
-      .attr("y2", d => d.target.y);
-
-    node
-      .attr("cx", d => d.x = Math.max(d.radius, Math.min(width - d.radius, d.x)))
-      .attr("cy", d => d.y = Math.max(d.radius, Math.min(height - d.radius, d.y)));
-  }
+  filterGraph()
 }); // closes graph data JSON call
+
+function ticked() {
+  link
+    .attr("x1", d => d.source.x)
+    .attr("y1", d => d.source.y)
+    .attr("x2", d => d.target.x)
+    .attr("y2", d => d.target.y);
+
+  node
+    .attr("cx", d => d.x = Math.max(d.radius, Math.min(width - d.radius, d.x)))
+    .attr("cy", d => d.y = Math.max(d.radius, Math.min(height - d.radius, d.y)));
+}
 
 // 3. HANDLE FILTERING INTERACTIONS -------------------------------------------------------------------------
 
 const getCoreAuthorColor = (d) => d.coreAuthor ? authorColor[d.coreAuthor] : nonCoreAuthorColor;
 
-const filterGraph = (filterName = false) => {
-  if (filterName == "toggleCoreAuthors") filterParams.coreAuthorsOnly = !filterParams.coreAuthorsOnly;
+const filterGraph = () => {
   nodes = graph.nodes.filter(node => shouldKeepNode(node));
-  links = graph.links.filter(link => shouldKeepLink(link));
+  links = graph.links.filter(link => shouldKeepLink(graph.nodesById, link));
   restart();
 }
 
@@ -203,7 +170,11 @@ const authorSelected = (node) => !node.coreAuthor ||filterParams.authorIsActive[
 
 // High-level filters
 const shouldKeepNode = (node) => coreAuthor(node) && yearInRange(node) && authorSelected(node);
-const shouldKeepLink = (link) => shouldKeepNode(link.source) && shouldKeepNode(link.target);
+const shouldKeepLink = (nodesById, link) => {
+  const sourceNode = nodesById[link.sourceId]
+  const targetNode = nodesById[link.targetId]
+  return shouldKeepNode(sourceNode) && shouldKeepNode(targetNode);
+}
 
 const makeAuthorActive = (authorId, shouldFilterGraphAfter = true) => {
   d3.select("#button-" + authorId)
@@ -224,38 +195,66 @@ const makeAuthorInactive = (authorId) => {
 }
 
 // 3. UPDATE GRAPH AFTER FILTERING DATA -------------------------------------------------------------------------
-
 function restart() {
+  if(!simulation) {
+    simulation = d3
+      .forceSimulation()
+      .force("link", d3.forceLink().id(node => node.id))
+      .force("charge", d3.forceManyBody().strength(-20))
+      .force("center", d3.forceCenter(width / 2, height / 2))
+      .force("x", d3.forceX(width  / 2).strength(centeringForce))
+      .force("y", d3.forceY(height / 2).strength(centeringForce))
+      .velocityDecay(0.8);
+    simulation.nodes(nodes).on("tick", ticked);
+    simulation.force("link").links(links);
+  }
+
   simulation.stop();
+
+  if(!link) {
+    link = svg
+      .append("g")
+      .attr("class", "links")
+      .selectAll("line")
+  }
+  link = link.data(links);
+
+  if(!node) {
+    node = svg
+      .append("g")
+      .attr("class", "nodes")
+      .selectAll("circle")
+
+    nodes.forEach(d => { d.x = d.cx = d.y = d.cy = yearToPix(d.year) });
+  }
+
   // Apply the general update pattern to the nodes.
   node = node.data(nodes, d => d.id); 
 
-  node.exit().transition().duration(transitionTime)
-  .attr("r", 0)
-  .remove();
+  node
+    .exit()
+    .transition().duration(transitionTime)
+    .attr("r", 0)
+    .remove();
 
-  node = node.enter().append("circle")
+  node = node
+    .enter()
+    .append("circle")
     .attr("fill", d => getCoreAuthorColor(d))
     .style("opacity", d => d.coreAuthor ? 1 : nonCoreAuthorOpacity)
-    .on("mouseover", function(d) {
-      console.log(d)
-       tooltip.transition()
-         .duration(200)
-         .style("opacity", .9);
-       tooltip.html(d.title + "<br><strong>" + (d.coreAuthor? coreAuthorsById[d.coreAuthor] : "") + "</strong>")
-         .style("left", (d3.event.pageX) + "px")
-         .style("top", (d3.event.pageY - 28) + "px");
-     })
-     .on("mouseout", function(d) {
-       tooltip.transition()
-         .duration(500)
-         .style("opacity", 0);
-     })
-    .call(function(node) { node.transition().duration(transitionTime).attr("r", d => d.radius); })
+    .on("mouseover", nodeMouseOver)
+    .on("mouseout", nodeMouseOut)
+    .call(function(node) { node.transition().duration(transitionTime).attr("r", radiusFromNode); })
+    .call(
+      d3
+        .drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended)
+    )
     .merge(node);
 
   // Apply the general update pattern to the links.
-  link = link.data(links);
 
   // Keep the exiting links connected to the moving remaining nodes.
   link.exit().transition().duration(transitionTime)
