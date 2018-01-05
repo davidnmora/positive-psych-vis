@@ -32,7 +32,7 @@ let filterParams = {
   authorIsActive: {}
 }
 
-var yearToPix = d3.scaleLinear()
+let yearToPix = d3.scaleLinear()
   .domain([minYear, maxYear])
   .range([0, width]);
 
@@ -68,11 +68,10 @@ d3.select('#DBH-range-slider-min').text(minYear);
 d3.select('#DBH-range-slider-max').text(maxYear);
 
 // tooltip
-var tooltip = d3.select("body").append("div")
+let tooltip = d3.select("body").append("div")
   .attr("class", "tooltip")
   .style("opacity", 0);
 
-// 3. GET DATA AND SETUP INITIAL VIS DEPENDANT ON DATA -------------------------------------------------------------------------
 
 const radiusFromNode = d => {    
   if(d.radius !== undefined) return d.radius  
@@ -83,7 +82,9 @@ const radiusFromNode = d => {
   return d.radius;
 }
 
-const nodeMouseOver = function(d) {
+// NODE MOUSE EVENTS
+
+const displayNodeTooltip = function(d) {
   console.log(d)
   tooltip.transition()
     .duration(200)
@@ -93,11 +94,18 @@ const nodeMouseOver = function(d) {
     .style("top", (d3.event.pageY - 28) + "px");
 }
 
-const nodeMouseOut = function(d) {
+const removeNodeTooltip = function(d) {
   tooltip.transition()
     .duration(500)
     .style("opacity", 0);
 }
+
+const openNodeSSPage = function(d) {
+  window.open(d.linkToPaper, '_blank')
+}
+
+
+// 3. GET DATA AND SETUP INITIAL VIS DEPENDANT ON DATA -------------------------------------------------------------------------
 
 Promise.all([
   new Promise((res,rej) => d3.json(graphDataJSON, function(error, JSONdata) { if(error) { rej(error) } else { res(JSONdata) } })),
@@ -242,8 +250,9 @@ function updateVis() {
     .append("circle")
     .attr("fill", d => getCoreAuthorColor(d))
     .style("opacity", d => d.coreAuthor ? 1 : nonCoreAuthorOpacity)
-    .on("mouseover", nodeMouseOver)
-    .on("mouseout", nodeMouseOut)
+    .on("mouseover", displayNodeTooltip)
+    .on("mouseout",   removeNodeTooltip)
+    .on("dblclick",  openNodeSSPage)
     .call(function(node) { node.transition().duration(transitionTime).attr("r", radiusFromNode); })
     .call(
       d3
