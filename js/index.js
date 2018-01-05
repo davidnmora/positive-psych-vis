@@ -159,7 +159,7 @@ const getCoreAuthorColor = (d) => d.coreAuthor ? authorColor[d.coreAuthor] : non
 const filterGraph = () => {
   nodes = graph.nodes.filter(node => shouldKeepNode(node));
   links = graph.links.filter(link => shouldKeepLink(graph.nodesById, link));
-  restart();
+  updateVis();
 }
 
 // Filter predicates
@@ -195,7 +195,7 @@ const makeAuthorInactive = (authorId) => {
 }
 
 // 3. UPDATE GRAPH AFTER FILTERING DATA -------------------------------------------------------------------------
-function restart() {
+function updateVis() {
   if(!simulation) {
     simulation = d3
       .forceSimulation()

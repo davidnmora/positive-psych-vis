@@ -1,15 +1,19 @@
 import json
 from pprint import pprint
 
+
+papersDict = {}
+coreAuthors = {}
+glob = {"updatingIndex": 0, "parsingCoreAuthors": True } # keeps track of what index in the array you're adding to (used as "node descriptor" for links)
+
+
 # IMPORT JSON FILE
-f = open("papers-by-title.json", "r") # 123 articles (each which contain their own citations, refences)
-papersDict = json.loads(f.read())
-f.close()
+with open("papers-by-title-SMALL.json", "r") as f: # articles (each which contain their own citations, refences)
+	papersDict = json.loads(f.read())
 
 # RETRIEVE CORE AUTHORS
-f = open("core-authors-list.json", "r") # 123 articles (each which contain their own citations, refences)
-coreAuthors = json.loads(f.read())
-f.close()
+with open("core-authors-list.json", "r") as f: 
+	coreAuthors = json.loads(f.read())
 
 # FOR SIMPLE TESTING PURPOSES:
 # papersDict = { "A-node": {
@@ -29,48 +33,16 @@ f.close()
 # 	}
 # }
 
-paperIdToIndex = {} # # paper title -> index
+paperIdToIndex = {} # paper title -> index
 nodeDict  = {} # paper index -> node object
 linkArray = [] 
 
 def generateGraphData():
-	glob = {"updatingIndex": 0, "parsingCoreAuthors": True } # keeps track of what index in the array you're adding to (used as "node descriptor" for links)
-	def nodeAdded(paper):
-		paperId = paper["paperId"]
-		# FILTER: for citations/refs, keep only if isInfluential
-		influential = paper.get('isInfluential', True)
-		if influential and paperId not in paperIdToIndex:
-			paperIdToIndex[paperId] = glob["updatingIndex"]
-			newNode = {
-				"title": paper["title"], 
-				"year" : paper["year"],
-				"keyPhrases": [],
-				"index": glob["updatingIndex"],
-				"id": glob["updatingIndex"],
-				"paperId": paper["paperId"]
-			}
-			if glob["parsingCoreAuthors"]:
-				newNode["influentialCitationCount"] = paper["influentialCitationCount"]
-				authorsDict = {}
-				for authorObj in paper["authors"]:
-					authorsDict[authorObj["authorId"]] = authorObj["name"] # hash map for fast access when filtering
-					if authorObj["authorId"] in coreAuthors:
-						newNode["coreAuthor"] = authorObj["authorId"] # ISSUE: if two core authors on same paper, only list first as singular coreAuthor
-				newNode["authors"] = authorsDict
-			nodeDict[glob["updatingIndex"]] = newNode
-			glob["updatingIndex"] += 1
-			return True
-		return influential
-
-	def addEdge(source, target):
-		linkArray.append({"source": source, "target": target})
-
 	# first add all papers authored by the core authors
 	# which contain the highest resolution info
 	for paperTitle in papersDict:
 		paper = papersDict[paperTitle]
-		# add to node
-		nodeAdded(paper)
+		addNode(paper)
 
 	# then add all the core authors ref/citations (overlap won't overwrite)
 	glob["parsingCoreAuthors"] = False
@@ -80,19 +52,19 @@ def generateGraphData():
 		hubPaperIndex = paperIdToIndex[paper["paperId"]]
 		# add all in going links (citations)
 		for citedPaper in paper["citations"]:
-			nodeAdded(citedPaper)
+			addNode(citedPaper)
 			paperId = citedPaper["paperId"]
 			if paperId in paperIdToIndex and citedPaper.get("isInfluential", True):
 				addEdge(paperIdToIndex[paperId], hubPaperIndex)
 		# add all out going links (references)
 		for refPaper in paper["references"]:
-			nodeAdded(refPaper)
+			addNode(refPaper)
 			paperId = refPaper["paperId"]
 			if paperId in paperIdToIndex and refPaper.get("isInfluential", True):
 				addEdge(hubPaperIndex, paperIdToIndex[paperId])
 
-	pprint(len(nodeDict))
-	pprint(len(linkArray))
+	print("Node count: " + str(len(nodeDict)))
+	print("Link count: " + str(len(linkArray)))
 
 	# convert Dict to List
 	nodeList = [None] * len(nodeDict)
@@ -110,5 +82,38 @@ def generateGraphData():
 	# 	for link in linkArray:
 	# 		gd.write("'" + str(link["source"]) + "','" + str(link["target"]) + "'\n")
 	# 	gd.close()
+	return 
+
+# ---Helper functions---
+
+def addNode(paper):
+	paperId = paper["paperId"]
+	# FILTER: for citations/refs, keep only if isInfluential
+	influential = paper.get('isInfluential', True)
+	if influential and paperId not in paperIdToIndex:
+		paperIdToIndex[paperId] = glob["updatingIndex"]
+		newNode = {
+			"title": paper["title"], 
+			"year" : paper["year"],
+			"keyPhrases": [],
+			"index": glob["updatingIndex"],
+			"id":    glob["updatingIndex"],
+			"paperId":     paper["paperId"],
+			"linkToPaper": paper["url"]
+		}
+		if glob["parsingCoreAuthors"]:
+			newNode["influentialCitationCount"] = paper["influentialCitationCount"]
+			authorsDict = {}
+			for authorObj in paper["authors"]:
+				authorsDict[authorObj["authorId"]] = authorObj["name"] # hash map for fast access when filtering
+				if authorObj["authorId"] in coreAuthors:
+					newNode["coreAuthor"] = authorObj["authorId"] # ISSUE: if two core authors on same paper, only list first as singular coreAuthor
+			newNode["authors"] = authorsDict
+		nodeDict[glob["updatingIndex"]] = newNode
+		glob["updatingIndex"] += 1 
+	return 
+
+def addEdge(source, target):
+	linkArray.append({"source": source, "target": target})
 
 generateGraphData()
