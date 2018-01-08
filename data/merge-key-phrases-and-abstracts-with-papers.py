@@ -1,4 +1,5 @@
 import json
+from pprint import pprint
 
 # open all papers as JSON
 papersByTitle = {}
@@ -12,6 +13,7 @@ with open("key-phrases-and-abstracts-by-title.json", "r") as f:
 
 # integrate abstract and key phrases
 for title in keyPhrasesAndAbstractsByTitle.keys():
+	pprint(papersByTitle[title])
 	papersByTitle[title]["keyPhrases"]    = keyPhrasesAndAbstractsByTitle[title]["keyPhrases"]
 	papersByTitle[title]["paperAbstract"] = keyPhrasesAndAbstractsByTitle[title]["paperAbstract"]
 

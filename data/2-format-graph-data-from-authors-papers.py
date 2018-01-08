@@ -10,7 +10,7 @@ glob = {"updatingIndex": 0, "parsingCoreAuthors": True } # keeps track of what i
 # ---Load files---
 
 # IMPORT JSON FILE
-with open("papers-by-title-SMALL.json", "r") as f: # articles (each which contain their own citations, refences)
+with open("papers-by-title-with-abstracts-and-KPs.json", "r") as f: # articles (each which contain their own citations, refences)
 	papersDict = json.loads(f.read())
 
 # RETRIEVE CORE AUTHORS
@@ -19,7 +19,9 @@ with open("core-authors-list.json", "r") as f:
 
 paperIdToIndex = {} # paper title -> index
 nodeDict       = {} # paper index -> node object
-linkArray = [] 
+linkArray      = [] # {source: node1Id, target: node2Id }
+KPtoPaperIdsDict = {} # KP -> [nodeId1, nodeId2... nodeIdn]
+KPtoKPIdMap			 = {} # KP -> KPid
 
 # ---Main function---
 
@@ -37,7 +39,8 @@ def generateGraphData():
 		addReferences(paper, hubPaperIndex)
 	print("Node count: " + str(len(nodeDict)))
 	print("Link count: " + str(len(linkArray)))
-	exportNodesAndLinks();
+	addKPsToGraph()
+	exportNodesAndLinks()
 	return 
 
 # ---Helper functions---
@@ -48,6 +51,7 @@ def addCitations(paper, hubPaperIndex):
 		paperId = citedPaper["paperId"]
 		if paperId in paperIdToIndex and citedPaper.get("isInfluential", True):
 			addEdge(paperIdToIndex[paperId], hubPaperIndex)
+	return
 
 def addReferences(paper, hubPaperIndex):
 	for refPaper in paper["references"]:
@@ -55,22 +59,25 @@ def addReferences(paper, hubPaperIndex):
 		paperId = refPaper["paperId"]
 		if paperId in paperIdToIndex and refPaper.get("isInfluential", True):
 			addEdge(hubPaperIndex, paperIdToIndex[paperId])
+	return
 
 def addNode(paper):
 	paperId = paper["paperId"]
 	# FILTER: for citations/refs, keep only if isInfluential
-	influential = paper.get('isInfluential', True)
+	influential = paper.get('isInfluential', True) # core authors don't have "isInfluential" property
 	if influential and paperId not in paperIdToIndex:
 		paperIdToIndex[paperId] = glob["updatingIndex"]
 		newNode = {
 			"title": paper["title"], 
 			"year" : paper["year"],
-			"keyPhrases": [],
-			"index": glob["updatingIndex"],
 			"id":    glob["updatingIndex"],
 			"paperId":     paper["paperId"],
 			"linkToPaper": paper["url"]
 		}
+		if paper.get("keyPhrases", False):
+			newNode["keyPhrases"] = paper["keyPhrases"]
+			addNewKPs(paper["keyPhrases"], newNode["id"])
+		newNode["paperAbstract"] = paper.get("paperAbstract", "")
 		if glob["parsingCoreAuthors"]:
 			newNode["influentialCitationCount"] = paper["influentialCitationCount"]
 			authorsDict = {}
@@ -83,18 +90,39 @@ def addNode(paper):
 		glob["updatingIndex"] += 1 
 	return 
 
+def addNewKPs(KPList, nodeId):
+	for KP in KPList:
+		if KP not in KPtoPaperIdsDict:
+			KPtoPaperIdsDict[KP] = []
+		KPtoPaperIdsDict[KP].append(nodeId)
+
 def addEdge(source, target):
 	linkArray.append({"source": source, "target": target})
+	return
 
+def addKPsToGraph():
+	for KP, paperIds in KPtoPaperIdsDict.items():
+		newKPNode = {
+			"id": glob["updatingIndex"],
+			"keyPhrase": KP,
+			"papers": paperIds
+		}
+		nodeDict[glob["updatingIndex"]] = newKPNode
+		KPtoKPIdMap[KP] = glob["updatingIndex"]
+		for paperId in paperIds:
+			linkArray.append({"source": glob["updatingIndex"], "target": paperId})
+		glob["updatingIndex"] += 1		
+	return
+	
 def exportNodesAndLinks():
-	# convert Dict to List
-	nodeList = [None] * len(nodeDict)
-	for index in nodeDict.keys():
-		nodeList[index] = nodeDict[index]
-	# JSON FORMAT:
-	graphData = { "nodes": nodeList, "links": linkArray }
+	graphData = { 
+		"nodes": nodeDict.values(), 
+		"links": linkArray,
+		"KPtoKPIdMap": KPtoKPIdMap
+	}
 	with open("graph-data.json", "w") as gd:
 		gd.write(json.dumps(graphData))
+	return
 
 generateGraphData()
 
