@@ -1,11 +1,13 @@
 import json
 from pprint import pprint
 
+# ---Globals---
 
 papersDict = {}
 coreAuthors = {}
 glob = {"updatingIndex": 0, "parsingCoreAuthors": True } # keeps track of what index in the array you're adding to (used as "node descriptor" for links)
 
+# ---Load files---
 
 # IMPORT JSON FILE
 with open("papers-by-title-SMALL.json", "r") as f: # articles (each which contain their own citations, refences)
@@ -15,76 +17,44 @@ with open("papers-by-title-SMALL.json", "r") as f: # articles (each which contai
 with open("core-authors-list.json", "r") as f: 
 	coreAuthors = json.loads(f.read())
 
-# FOR SIMPLE TESTING PURPOSES:
-# papersDict = { "A-node": {
-# 	"title": "A-node",
-# 	"year" :  1999,
-# 	"citations":  [{ "title": "A", "year" :  2017, "isInfluential": True}],
-# 	"references": [{ "title": "REF", "year" :  2017, "isInfluential": True}],
-# 	"influentialCitationCount": 123,
-# 	"authors": [{"name": "authorA1"}, {"name": "authorA2"}]
-# 	}, "B-node-NOT-INFLUENTIAL": {
-# 	"title": "B-node-NOT-INFLUENTIAL",
-# 	"year" :  1999,
-# 	"citations":  [{"title": "A-node", "year" : 1999, "isInfluential": True}],
-# 	"references": [],
-# 	"influentialCitationCount": 123,
-# 	"authors": [{"name": "authorB1"}]
-# 	}
-# }
-
 paperIdToIndex = {} # paper title -> index
-nodeDict  = {} # paper index -> node object
+nodeDict       = {} # paper index -> node object
 linkArray = [] 
 
+# ---Main function---
+
 def generateGraphData():
-	# first add all papers authored by the core authors
-	# which contain the highest resolution info
+	# first add all papers authored by the core authors, which contain the highest resolution info
 	for paperTitle in papersDict:
 		paper = papersDict[paperTitle]
 		addNode(paper)
-
 	# then add all the core authors ref/citations (overlap won't overwrite)
 	glob["parsingCoreAuthors"] = False
 	for paperTitle in papersDict:
 		paper = papersDict[paperTitle]
-		# add to node
 		hubPaperIndex = paperIdToIndex[paper["paperId"]]
-		# add all in going links (citations)
-		for citedPaper in paper["citations"]:
-			addNode(citedPaper)
-			paperId = citedPaper["paperId"]
-			if paperId in paperIdToIndex and citedPaper.get("isInfluential", True):
-				addEdge(paperIdToIndex[paperId], hubPaperIndex)
-		# add all out going links (references)
-		for refPaper in paper["references"]:
-			addNode(refPaper)
-			paperId = refPaper["paperId"]
-			if paperId in paperIdToIndex and refPaper.get("isInfluential", True):
-				addEdge(hubPaperIndex, paperIdToIndex[paperId])
-
+		addCitations (paper, hubPaperIndex);
+		addReferences(paper, hubPaperIndex)
 	print("Node count: " + str(len(nodeDict)))
 	print("Link count: " + str(len(linkArray)))
-
-	# convert Dict to List
-	nodeList = [None] * len(nodeDict)
-	for index in nodeDict.keys():
-		nodeList[index] = nodeDict[index]
-
-	# JSON FORMAT:
-	graphData = { "nodes": nodeList, "links": linkArray }
-	with open("graph-data.json", "w") as gd:
-		gd.write(json.dumps(graphData))
-		gd.close()
-
-	# CSV FORMAT: 
-	# with open("graph-data.csv", "w") as gd:
-	# 	for link in linkArray:
-	# 		gd.write("'" + str(link["source"]) + "','" + str(link["target"]) + "'\n")
-	# 	gd.close()
+	exportNodesAndLinks();
 	return 
 
 # ---Helper functions---
+
+def addCitations(paper, hubPaperIndex):
+	for citedPaper in paper["citations"]:
+		addNode(citedPaper)
+		paperId = citedPaper["paperId"]
+		if paperId in paperIdToIndex and citedPaper.get("isInfluential", True):
+			addEdge(paperIdToIndex[paperId], hubPaperIndex)
+
+def addReferences(paper, hubPaperIndex):
+	for refPaper in paper["references"]:
+		addNode(refPaper)
+		paperId = refPaper["paperId"]
+		if paperId in paperIdToIndex and refPaper.get("isInfluential", True):
+			addEdge(hubPaperIndex, paperIdToIndex[paperId])
 
 def addNode(paper):
 	paperId = paper["paperId"]
@@ -116,4 +86,38 @@ def addNode(paper):
 def addEdge(source, target):
 	linkArray.append({"source": source, "target": target})
 
+def exportNodesAndLinks():
+	# convert Dict to List
+	nodeList = [None] * len(nodeDict)
+	for index in nodeDict.keys():
+		nodeList[index] = nodeDict[index]
+	# JSON FORMAT:
+	graphData = { "nodes": nodeList, "links": linkArray }
+	with open("graph-data.json", "w") as gd:
+		gd.write(json.dumps(graphData))
+
 generateGraphData()
+
+# FOR SIMPLE TESTING PURPOSES:
+# papersDict = { "A-node": {
+# 	"title": "A-node",
+# 	"year" :  1999,
+# 	"citations":  [{ "title": "A", "year" :  2017, "isInfluential": True}],
+# 	"references": [{ "title": "REF", "year" :  2017, "isInfluential": True}],
+# 	"influentialCitationCount": 123,
+# 	"authors": [{"name": "authorA1"}, {"name": "authorA2"}]
+# 	}, "B-node-NOT-INFLUENTIAL": {
+# 	"title": "B-node-NOT-INFLUENTIAL",
+# 	"year" :  1999,
+# 	"citations":  [{"title": "A-node", "year" : 1999, "isInfluential": True}],
+# 	"references": [],
+# 	"influentialCitationCount": 123,
+# 	"authors": [{"name": "authorB1"}]
+# 	}
+# }
+
+# CSV FORMAT: 
+# with open("graph-data.csv", "w") as gd:
+# 	for link in linkArray:
+# 		gd.write("'" + str(link["source"]) + "','" + str(link["target"]) + "'\n")
+# 	gd.close()

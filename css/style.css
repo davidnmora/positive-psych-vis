@@ -48,17 +48,14 @@ div.tooltip {
 }
 
 /* buttons. Citation: Baltazar Gomez on CodePen */
-#buttons {
-  text-align: center;
-  color: #fff;
-}
 
 button {
+  width: 200px;
   outline: 0;
   border: 0;
   background: none;
-  margin: 25px;
-  padding: 10px 35px;
+  margin: 5px;
+  padding: 10px 20px;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   color: #fff;
