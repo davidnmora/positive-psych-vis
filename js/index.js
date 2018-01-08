@@ -1,10 +1,5 @@
 console.clear();
 
-document.querySelector("#coreAuthorsSwitch").addEventListener("click", () => {
-  filterParams.coreAuthorsOnly = !filterParams.coreAuthorsOnly
-  filterGraph()
-})
-
 // 1. GLOBAL VARIALBES -------------------------------------------------------------------------
 
 const graphDataJSON = "data/graph-data.json"
@@ -25,6 +20,8 @@ let graph, links, link, nodes, node, simulation, coreAuthorsById; // globals set
 
 let color = d3.scaleOrdinal(d3.schemeCategory20); 
     authorColor = {};
+
+const getCoreAuthorColor = (d) => d.coreAuthor ? authorColor[d.coreAuthor] : nonCoreAuthorColor;
 
 let filterParams = {
   coreAuthorsOnly: true,
@@ -81,6 +78,11 @@ const radiusFromNode = d => {
   d.radius = minRadius + (d.degree/12);
   return d.radius;
 }
+
+d3.select("#coreAuthorsSwitch").on("click", () => {
+  filterParams.coreAuthorsOnly = !filterParams.coreAuthorsOnly
+  filterGraph()
+})
 
 // NODE MOUSE EVENTS
 
@@ -146,7 +148,7 @@ Promise.all([
     })
 
   filterGraph()
-}); // closes graph data JSON call
+}); // closes graph data Primise.then(...)
 
 function ticked() {
   link
@@ -161,8 +163,6 @@ function ticked() {
 }
 
 // 3. HANDLE FILTERING INTERACTIONS -------------------------------------------------------------------------
-
-const getCoreAuthorColor = (d) => d.coreAuthor ? authorColor[d.coreAuthor] : nonCoreAuthorColor;
 
 const filterGraph = () => {
   nodes = graph.nodes.filter(node => shouldKeepNode(node));
@@ -204,7 +204,8 @@ const makeAuthorInactive = (authorId) => {
 
 // 3. UPDATE GRAPH AFTER FILTERING DATA -------------------------------------------------------------------------
 function updateVis() {
-  if(!simulation) {
+  // Initialize layout simulation at startup
+  if(!simulation) { 
     simulation = d3
       .forceSimulation()
       .force("link", d3.forceLink().id(node => node.id))
@@ -251,9 +252,9 @@ function updateVis() {
     .attr("fill", d => getCoreAuthorColor(d))
     .style("opacity", d => d.coreAuthor ? 1 : nonCoreAuthorOpacity)
     .on("mouseover", displayNodeTooltip)
-    .on("mouseout",   removeNodeTooltip)
+    .on("mouseout",  removeNodeTooltip)
     .on("dblclick",  openNodeSSPage)
-    .call(function(node) { node.transition().duration(transitionTime).attr("r", radiusFromNode); })
+    .call(node => { node.transition().duration(transitionTime).attr("r", radiusFromNode); })
     .call(
       d3
         .drag()
