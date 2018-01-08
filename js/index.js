@@ -21,12 +21,22 @@ let graph, links, link, nodes, node, simulation, coreAuthorsById; // globals set
 let color = d3.scaleOrdinal(d3.schemeCategory20); 
     authorColor = {};
 
-const getCoreAuthorColor = (d) => d.coreAuthor ? authorColor[d.coreAuthor] : nonCoreAuthorColor;
+const getNodeColor = (d) => {
+  if (d.keyPhrase) return "white";
+  return d.coreAuthor ? authorColor[d.coreAuthor] : nonCoreAuthorColor;
+}
 
 let filterParams = {
   coreAuthorsOnly: true,
   yearRange: { "min": minYear, "max": maxYear },
-  authorIsActive: {}
+  // NOTE: using hash maps for fast lookup (values are arbitrary)
+  authorIsActive: {},
+  activeKPs: { // DEFAULT VALUES FOR TESTING PURPOSES
+    "meditation": 0,
+    "neuroplasticity": 0,
+    "neuroimaging": 0,
+    "Happiness": 0
+  }
 }
 
 let yearToPix = d3.scaleLinear()
@@ -71,12 +81,12 @@ let tooltip = d3.select("body").append("div")
 
 
 const radiusFromNode = d => {    
-  if(d.radius !== undefined) return d.radius  
+  if(d.radius !== undefined) return d.radius;
   d.degree = graph.links.filter(l => {
     return l.source == d.id || l.target == d.id;
   }).length;
   d.radius = minRadius + (d.degree/12);
-  return d.radius;
+  return d.keyPhrase ? 30 : d.radius; 
 }
 
 d3.select("#coreAuthorsSwitch").on("click", () => {
@@ -91,9 +101,15 @@ const displayNodeTooltip = function(d) {
   tooltip.transition()
     .duration(200)
     .style("opacity", .9);
-  tooltip.html(d.title + "<br><strong>" + (d.coreAuthor? coreAuthorsById[d.coreAuthor] : "") + "</strong>")
+  tooltip.html(getTooltipHTML(d))
     .style("left", (d3.event.pageX) + "px")
     .style("top", (d3.event.pageY - 28) + "px");
+}
+
+const getTooltipHTML = (d) => {
+  return d.keyPhrase
+    ? "<tag class='key-phrase'>" + d.keyPhrase + "</tag>"
+    : d.title + "<br><strong>" + (d.coreAuthor? coreAuthorsById[d.coreAuthor] : "") + "</strong>"
 }
 
 const removeNodeTooltip = function(d) {
@@ -171,13 +187,17 @@ const filterGraph = () => {
 }
 
 // Filter predicates
+const isActiveKP     = (node) => {if (filterParams.activeKPs.hasOwnProperty(node.keyPhrase ? node.keyPhrase.toLowerCase() : undefined)) {console.log(node); return true; }}
 const coreAuthor     = (node) => !filterParams.coreAuthorsOnly || node.coreAuthor; 
 const yearInRange    = (node) => (node.year >= filterParams.yearRange.min) && 
                                  (node.year <= filterParams.yearRange.max);
 const authorSelected = (node) => !node.coreAuthor ||filterParams.authorIsActive[node.coreAuthor];
 
 // High-level filters
-const shouldKeepNode = (node) => coreAuthor(node) && yearInRange(node) && authorSelected(node);
+const shouldKeepNode = (node) => isActiveKP    (node) ||
+                                 coreAuthor    (node) && 
+                                 yearInRange   (node) && 
+                                 authorSelected(node);
 const shouldKeepLink = (nodesById, link) => {
   const sourceNode = nodesById[link.sourceId]
   const targetNode = nodesById[link.targetId]
@@ -234,7 +254,7 @@ function updateVis() {
       .attr("class", "nodes")
       .selectAll("circle")
 
-    nodes.forEach(d => { d.x = d.cx = d.y = d.cy = yearToPix(d.year) });
+    nodes.forEach(d => { d.x = d.cx = d.y = d.cy = (d.keyPhrase ? d.id / 100 : yearToPix(d.year)) });
   }
 
   // Apply the general update pattern to the nodes.
@@ -249,8 +269,8 @@ function updateVis() {
   node = node
     .enter()
     .append("circle")
-    .attr("fill", d => getCoreAuthorColor(d))
-    .style("opacity", d => d.coreAuthor ? 1 : nonCoreAuthorOpacity)
+    .attr("fill", d => getNodeColor(d))
+    .style("opacity", d => d.coreAuthor || d.keyPhrase ? 1 : nonCoreAuthorOpacity)
     .on("mouseover", displayNodeTooltip)
     .on("mouseout",  removeNodeTooltip)
     .on("dblclick",  openNodeSSPage)
