@@ -6,16 +6,24 @@ body {
 }
 
 h1 {
-	font-size: 5em;
+	font-size: 3em;
 	font-weight: bold;
 }
 
-h2 {
+h3 {
 	font-weight: lighter;
 }
 
 #container {
 	margin: 50px;
+}
+
+#vis-container {
+  float: left;
+}
+
+#core-authors-list-container {
+  display: inline;
 }
 
 .nodes {
@@ -40,8 +48,6 @@ div.tooltip {
 }
 
 /* buttons. Citation: Baltazar Gomez on CodePen */
-/* Colors */
-
 #buttons {
   text-align: center;
   color: #fff;
@@ -54,7 +60,7 @@ button {
   margin: 25px;
   padding: 10px 35px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
+  font-size: 10px;
   color: #fff;
   cursor: pointer;
   border-radius: 50px;
@@ -66,9 +72,6 @@ button {
 button.core-author-toggle {
 	border: 2px solid white;
 }
-
-
-
 
 
 /* sliders */

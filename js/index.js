@@ -10,9 +10,9 @@ document.querySelector("#coreAuthorsSwitch").addEventListener("click", () => {
 const graphDataJSON = "data/graph-data.json"
       coreAuthorsJSON = "data/core-authors-list.json";
 
-const width = 1500,
-      height = 1100,
-      minRadius = 10, // in pixles
+const width = 600,
+      height = 900,
+      minRadius = 7, // in pixles
       transitionTime = 750, // milliseconds
       centeringForce = 0.09,
       minYear = 1950, 
@@ -48,7 +48,7 @@ let svg = d3
 
 // create slider
 let DBHrange = [minYear, maxYear];
-d3.select('#DBH-range-slider').call(d3.slider().value([minYear, maxYear]).orientation("horizontal")
+d3.select('#timeline-range-slider').call(d3.slider().value([minYear, maxYear]).orientation("horizontal")
   .min(minYear)
   .max(maxYear)
   .on("slideend", minMax => { 
@@ -60,14 +60,14 @@ d3.select('#DBH-range-slider').call(d3.slider().value([minYear, maxYear]).orient
     filterParams.yearRange.min = minMax[0];
     filterParams.yearRange.max = minMax[1]; 
     filterGraph();
-    d3.select('#DBH-range-slider-min').text(Math.round(minMax[0]));
-    d3.select('#DBH-range-slider-max').text(Math.round(minMax[1]));
+    d3.select('#timeline-range-slider-min').text(Math.round(minMax[0]));
+    d3.select('#timeline-range-slider-max').text(Math.round(minMax[1]));
   }));
 // add initial values
-d3.select('#DBH-range-slider-min').text(minYear);
-d3.select('#DBH-range-slider-max').text(maxYear);
+d3.select('#timeline-range-slider-min').text(minYear);
+d3.select('#timeline-range-slider-max').text(maxYear);
 
-// tooltip
+// tooltip for node title and author on hover
 let tooltip = d3.select("body").append("div")
   .attr("class", "tooltip")
   .style("opacity", 0);
@@ -78,7 +78,7 @@ const radiusFromNode = d => {
   d.degree = graph.links.filter(l => {
     return l.source == d.id || l.target == d.id;
   }).length;
-  d.radius = minRadius + (d.degree/10);
+  d.radius = minRadius + (d.degree/12);
   return d.radius;
 }
 

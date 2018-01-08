@@ -15,13 +15,12 @@ with open("all-papers-on-s2.json", "r") as allPapersFile:
 		paper = json.loads(line)
 		paperTitle = paper["title"]
 		if paperTitle in mySubsetOfPapersTitles:
-			print "MATCH: " + paperTitle
+			print "MATCH: " + paperTitle + "\n\n\n\n"
 			keyPhrasesAndAbstractsDict[paperTitle] = {
 				"keyPhrases": paper["keyPhrases"],
 				"paperAbstract":   paper["paperAbstract"]
 			}
 
 
-keyPhrasesAndAbstractsFile = open("key-phrases-and-abstracts-by-title.json", "w")
-keyPhrasesAndAbstractsFile.write(json.dumps(keyPhrasesAndAbstractsDict))
-keyPhrasesAndAbstractsFile.close()
+with open("key-phrases-and-abstracts-by-title.json", "w") as keyPhrasesAndAbstractsFile:
+	keyPhrasesAndAbstractsFile.write(json.dumps(keyPhrasesAndAbstractsDict))
