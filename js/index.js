@@ -2,7 +2,7 @@ console.clear();
 
 // 1. GLOBAL VARIALBES -------------------------------------------------------------------------
 
-const graphDataJSON = "data/graph-data.json";
+const graphDataJSONPath = "data/graph-data.json";
 const width = 600,
       height = 600,
       minRadius = 7, // in pixles
@@ -41,8 +41,7 @@ let svg = d3
   .attr("height", height);
 
 
-// 2. SETUP SLIDER -------------------------------------------------------------------------
-
+// 2. SETUP DATA-INDEPENDANT INTERFACE -------------------------------------------------------------------------
 
 // create slider
 let DBHrange = [minYear, maxYear];
@@ -70,7 +69,6 @@ let tooltip = d3.select("body").append("div")
   .attr("class", "tooltip")
   .style("opacity", 0);
 
-
 // MOUSE AND CLICK EVENTS
 
 const displayNodeTooltip = function(d) {
@@ -85,8 +83,8 @@ const displayNodeTooltip = function(d) {
 
 const getTooltipHTML = (d) => {
   return d.keyPhrase
-    ? "<tag class='key-phrase'>" + d.keyPhrase + "</tag>"
-    : d.title + "<br><strong>" + (d.coreAuthor? coreAuthorsById[d.coreAuthor] : "") + "</strong>"
+          ? "<tag class='key-phrase'>" + d.keyPhrase + "</tag>"
+          : d.title + "<br><strong>" + (d.coreAuthor? coreAuthorsById[d.coreAuthor] : "") + "</strong>"
 }
 
 const removeNodeTooltip = function(d) {
@@ -111,7 +109,7 @@ d3.select("#active-KP-papers-only-toggle")
 // 3. GET DATA AND SETUP INITIAL VIS DEPENDANT ON DATA -------------------------------------------------------------------------
 
 Promise.all([
-  new Promise((res,rej) => d3.json(graphDataJSON, function(error, JSONdata) { if(error) { rej(error) } else { res(JSONdata) } }))  
+  new Promise((res,rej) => d3.json(graphDataJSONPath, function(error, JSONdata) { if(error) { rej(error) } else { res(JSONdata) } }))  
 ]).then(([_graph]) => {
   graph = _graph
   graph.nodesById = {}
@@ -123,6 +121,15 @@ Promise.all([
     link.targetId = link.target
   }
   console.log(graph);
+
+  // Setup key phrase searchbar
+  d3.select("#key-phrase-search-bar")
+    .on("keyup", (_,__, e) => {
+      let currInputText = e[0].value.toLowerCase();
+      console.log(graph.KPtoKPIdMap.hasOwnProperty(currInputText) ? "WHAMY! " + currInputText : "Nope...");
+
+
+    })
 
   // Add core authors buttons
   // d3.select("#core-authors-list-container")

@@ -66,7 +66,7 @@ def addKPsToGraph():
 		}
 		nodeArray.append(newKPNode)
 		TEMP_encountered_paper_ids[KPid] = KPid
-		KPtoKPIdMap[KP] = KPid
+		KPtoKPIdMap[KP.lower()] = KPid
 		for paperId in paperIds:
 			addEdge(newKPNode["id"], paperId)
 		KPid += 1		
@@ -76,7 +76,6 @@ def exportNodesAndLinks():
 	# TEMPORARY FOR all-papers-on-s2-SMALL.json
 	TEMP_filtered_linkArray = []
 	for link in linkArray:
-		# if True:
 		if TEMP_encountered_paper_ids.get(link["source"], False) and TEMP_encountered_paper_ids.get(link["target"], False):
 			TEMP_filtered_linkArray.append(link)
 	print "Nodes, links"
