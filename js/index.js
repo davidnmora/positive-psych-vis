@@ -27,16 +27,10 @@ const getNodeColor = (d) => {
 }
 
 let filterParams = {
-  coreAuthorsOnly: true,
+  activeKPPapersOnly: true,
   yearRange: { "min": minYear, "max": maxYear },
-  // NOTE: using hash maps for fast lookup (values are arbitrary)
-  authorIsActive: {},
-  activeKPs: { // DEFAULT VALUES FOR TESTING PURPOSES
-    "meditation": 0,
-    "neuroplasticity": 0,
-    "neuroimaging": 0,
-    "Happiness": 0
-  }
+  authorIsActive: {}, // NOTE: using hash maps for fast lookup (values are arbitrary)
+  activeKPs: new Set()
 }
 
 let yearToPix = d3.scaleLinear()
@@ -90,8 +84,8 @@ const radiusFromNode = d => {
 }
 
 d3.select("#coreAuthorsSwitch").on("click", () => {
-  filterParams.coreAuthorsOnly = !filterParams.coreAuthorsOnly
-  filterGraph()
+  filterParams.activeKPPapersOnly = !filterParams.activeKPPapersOnly;
+  filterGraph();
 })
 
 // NODE MOUSE EVENTS
@@ -130,6 +124,8 @@ Promise.all([
   new Promise((res,rej) => d3.json(coreAuthorsJSON, function(error, JSONdata) { if(error) { rej(error) } else { res(JSONdata) } }))  
 ]).then(([ _graph, _coreAuthorsById ]) => {
   graph = _graph
+  // POST-DB TO DO: REMOVE THIS. IT'S JUST TO FILTER OUT THE OLD PARADIGM OF "NON CORE AUTHORS"
+  // graph.nodes = graph.nodes.filter(node => node.coreAuthor)
   graph.nodesById = {}
   for (const node of graph.nodes) {
     graph.nodesById[node.id] = node
@@ -163,6 +159,14 @@ Promise.all([
         : makeAuthorActive(authorId);
     })
 
+  const KPs = [ // DEFAULT VALUES FOR TESTING PURPOSES
+    "meditation",
+    "neuroplasticity",
+    "neuroimaging",
+    "happiness" 
+  ];
+  KPs.forEach(KP => filterParams.activeKPs.add(KP))
+
   filterGraph()
 }); // closes graph data Primise.then(...)
 
@@ -187,15 +191,22 @@ const filterGraph = () => {
 }
 
 // Filter predicates
-const isActiveKP     = (node) => {if (filterParams.activeKPs.hasOwnProperty(node.keyPhrase ? node.keyPhrase.toLowerCase() : undefined)) {console.log(node); return true; }}
-const coreAuthor     = (node) => !filterParams.coreAuthorsOnly || node.coreAuthor; 
+const isActiveKP     = (node) => {if (filterParams.activeKPs.has(node.keyPhrase ? node.keyPhrase.toLowerCase() : undefined)) {console.log(node); return true; }}
+const hasActiveKP    = (node) => {
+  if (!filterParams.activeKPPapersOnly || filterParams.activeKPs.has(node.keyPhrase ? node.keyPhrase.toLowerCase() : "")) return true;
+  if (!node.keyPhrases) return false;
+  for (let i = 0; i < node.keyPhrases.length; i++) {
+    if (filterParams.activeKPs.has(node.keyPhrases[i].toLowerCase())) return true;
+  }
+  return false;
+}  
 const yearInRange    = (node) => (node.year >= filterParams.yearRange.min) && 
                                  (node.year <= filterParams.yearRange.max);
 const authorSelected = (node) => !node.coreAuthor ||filterParams.authorIsActive[node.coreAuthor];
 
 // High-level filters
 const shouldKeepNode = (node) => isActiveKP    (node) ||
-                                 coreAuthor    (node) && 
+                                 hasActiveKP    (node) && 
                                  yearInRange   (node) && 
                                  authorSelected(node);
 const shouldKeepLink = (nodesById, link) => {

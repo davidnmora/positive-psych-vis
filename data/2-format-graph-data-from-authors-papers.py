@@ -62,6 +62,7 @@ def addReferences(paper, hubPaperIndex):
 	return
 
 def addNode(paper):
+
 	paperId = paper["paperId"]
 	# FILTER: for citations/refs, keep only if isInfluential
 	influential = paper.get('isInfluential', True) # core authors don't have "isInfluential" property
@@ -85,6 +86,8 @@ def addNode(paper):
 				authorsDict[authorObj["authorId"]] = authorObj["name"] # hash map for fast access when filtering
 				if authorObj["authorId"] in coreAuthors:
 					newNode["coreAuthor"] = authorObj["authorId"] # ISSUE: if two core authors on same paper, only list first as singular coreAuthor
+				else:
+					return
 			newNode["authors"] = authorsDict
 		nodeDict[glob["updatingIndex"]] = newNode
 		glob["updatingIndex"] += 1 
@@ -104,11 +107,11 @@ def addKPsToGraph():
 	for KP, paperIds in KPtoPaperIdsDict.items():
 		newKPNode = {
 			"id": glob["updatingIndex"],
-			"keyPhrase": KP,
+			"keyPhrase": KP.lower(),
 			"papers": paperIds
 		}
 		nodeDict[glob["updatingIndex"]] = newKPNode
-		KPtoKPIdMap[KP] = glob["updatingIndex"]
+		KPtoKPIdMap[KP.lower()] = glob["updatingIndex"]
 		for paperId in paperIds:
 			linkArray.append({"source": glob["updatingIndex"], "target": paperId})
 		glob["updatingIndex"] += 1		
