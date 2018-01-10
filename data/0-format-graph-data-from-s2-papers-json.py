@@ -22,10 +22,8 @@ def generateGraphData():
 			addCitations (paper, hubPaperId);
 			addReferences(paper, hubPaperId)
 			numPapers += 1
-			if numPapers > 500: # TEMPORARY LIMITER
+			if numPapers > 300: # TEMPORARY LIMITER
 				break
-		print("Node count: " + str(len(nodeArray)))
-		print("Link count: " + str(len(linkArray)))
 		addKPsToGraph()
 		exportNodesAndLinks()
 	return 
@@ -78,8 +76,12 @@ def exportNodesAndLinks():
 	# TEMPORARY FOR all-papers-on-s2-SMALL.json
 	TEMP_filtered_linkArray = []
 	for link in linkArray:
-		if link["source"] in TEMP_encountered_paper_ids and link["target"] in TEMP_encountered_paper_ids:
+		# if True:
+		if TEMP_encountered_paper_ids.get(link["source"], False) and TEMP_encountered_paper_ids.get(link["target"], False):
 			TEMP_filtered_linkArray.append(link)
+	print "Nodes, links"
+	print len(nodeArray)
+	print len(TEMP_filtered_linkArray)
 	graphData = { 
 		"nodes": nodeArray, 
 		"links": TEMP_filtered_linkArray, # linkArray,

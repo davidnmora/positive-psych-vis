@@ -70,10 +70,9 @@ button {
   position: relative;
 }
 
-button.core-author-toggle {
+#active-KP-papers-only-toggle {
 	border: 2px solid white;
 }
-
 
 /* sliders */
 .d3-slider-horizontal {

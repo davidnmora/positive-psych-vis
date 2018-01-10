@@ -2,28 +2,25 @@ console.clear();
 
 // 1. GLOBAL VARIALBES -------------------------------------------------------------------------
 
-const graphDataJSON = "data/graph-data.json"
-      coreAuthorsJSON = "data/core-authors-list.json";
-
+const graphDataJSON = "data/graph-data.json";
 const width = 600,
-      height = 900,
+      height = 600,
       minRadius = 7, // in pixles
       transitionTime = 750, // milliseconds
       centeringForce = 0.09,
-      minYear = 1950, 
+      minYear = 1950, // TO DO: WHAT'S THE VERY EARLIEST PAPER?
       maxYear = 2017,
-      linkColor = "white",
-      nonCoreAuthorColor = "grey",
-      nonCoreAuthorOpacity = 0.4;
+      linkColor      = "white",
+      paperColor     = "orange",
+      keyPhraseColor = "grey"
+      nodeOpacity = 0.9;
 
-let graph, links, link, nodes, node, simulation, coreAuthorsById; // globals set within json request response
+let graph, links, link, nodes, node, simulation; // globals set within json request response
 
-let color = d3.scaleOrdinal(d3.schemeCategory20); 
-    authorColor = {};
+// let color = d3.scaleOrdinal(d3.schemeCategory20); 
 
 const getNodeColor = (d) => {
-  if (d.keyPhrase) return "white";
-  return d.coreAuthor ? authorColor[d.coreAuthor] : nonCoreAuthorColor;
+  return d.keyPhrase ? keyPhraseColor : paperColor;
 }
 
 let filterParams = {
@@ -74,21 +71,7 @@ let tooltip = d3.select("body").append("div")
   .style("opacity", 0);
 
 
-const radiusFromNode = d => {    
-  if(d.radius !== undefined) return d.radius;
-  d.degree = graph.links.filter(l => {
-    return l.source == d.id || l.target == d.id;
-  }).length;
-  d.radius = minRadius + (d.degree/12);
-  return d.keyPhrase ? 30 : d.radius; 
-}
-
-d3.select("#coreAuthorsSwitch").on("click", () => {
-  filterParams.activeKPPapersOnly = !filterParams.activeKPPapersOnly;
-  filterGraph();
-})
-
-// NODE MOUSE EVENTS
+// MOUSE AND CLICK EVENTS
 
 const displayNodeTooltip = function(d) {
   console.log(d)
@@ -116,16 +99,21 @@ const openNodeSSPage = function(d) {
   window.open(d.linkToPaper, '_blank')
 }
 
+d3.select("#active-KP-papers-only-toggle")
+  .html((filterParams.activeKPPapersOnly ? "Show" : "Hide") + " papers without selected keyword(s)")
+  .on("click", () => {
+    filterParams.activeKPPapersOnly = !filterParams.activeKPPapersOnly;
+    d3.select("#active-KP-papers-only-toggle").html((filterParams.activeKPPapersOnly ? "Show" : "Hide") + " papers without selected keyword(s)")
+    filterGraph();
+  })
+
 
 // 3. GET DATA AND SETUP INITIAL VIS DEPENDANT ON DATA -------------------------------------------------------------------------
 
 Promise.all([
-  new Promise((res,rej) => d3.json(graphDataJSON, function(error, JSONdata) { if(error) { rej(error) } else { res(JSONdata) } })),
-  new Promise((res,rej) => d3.json(coreAuthorsJSON, function(error, JSONdata) { if(error) { rej(error) } else { res(JSONdata) } }))  
-]).then(([ _graph, _coreAuthorsById ]) => {
+  new Promise((res,rej) => d3.json(graphDataJSON, function(error, JSONdata) { if(error) { rej(error) } else { res(JSONdata) } }))  
+]).then(([_graph]) => {
   graph = _graph
-  // POST-DB TO DO: REMOVE THIS. IT'S JUST TO FILTER OUT THE OLD PARADIGM OF "NON CORE AUTHORS"
-  // graph.nodes = graph.nodes.filter(node => node.coreAuthor)
   graph.nodesById = {}
   for (const node of graph.nodes) {
     graph.nodesById[node.id] = node
@@ -134,36 +122,30 @@ Promise.all([
     link.sourceId = link.source
     link.targetId = link.target
   }
-  coreAuthorsById = _coreAuthorsById
   console.log(graph);
 
-  // create core-authors list buttons via a JSON request
-  Object.keys(coreAuthorsById).forEach((authorId, i) => { 
-    authorColor[authorId] = color(i); 
-    filterParams.authorIsActive[authorId] = true; 
-  })
-
-  d3.select("#core-authors-list-container")
-    .selectAll("div")
-    .data(Object.keys(coreAuthorsById))
-    .enter()
-    .append("button")
-    .html(authorId => coreAuthorsById[authorId])
-    .attr("class", "core-author-button")
-    .attr("id"   ,  authorId => "button-" + authorId)
-    .attr("class",  authorId => { makeAuthorActive(authorId, false); return "active"; })
-    .attr("border", authorId => "2px solid " + authorColor[authorId])
-    .on("click"   , authorId => {
-      filterParams.authorIsActive[authorId] 
-        ? makeAuthorInactive(authorId) 
-        : makeAuthorActive(authorId);
-    })
+  // Add core authors buttons
+  // d3.select("#core-authors-list-container")
+  //   .selectAll("div")
+  //   .data(Object.keys(coreAuthorsById))
+  //   .enter()
+  //   .append("button")
+  //   .html(authorId => coreAuthorsById[authorId])
+  //   .attr("class", "core-author-button")
+  //   .attr("id"   ,  authorId => "button-" + authorId)
+  //   .attr("class",  authorId => { makeAuthorActive(authorId, false); return "active"; })
+  //   .attr("border", authorId => "2px solid " + authorColor[authorId])
+  //   .on("click"   , authorId => {
+  //     filterParams.authorIsActive[authorId] 
+  //       ? makeAuthorInactive(authorId) 
+  //       : makeAuthorActive(authorId);
+  //   })
 
   const KPs = [ // DEFAULT VALUES FOR TESTING PURPOSES
-    "meditation",
-    "neuroplasticity",
-    "neuroimaging",
-    "happiness" 
+    "burnout",
+    "adversity",
+    "caucasian",
+    "cell wall" 
   ];
   KPs.forEach(KP => filterParams.activeKPs.add(KP))
 
@@ -202,13 +184,11 @@ const hasActiveKP    = (node) => {
 }  
 const yearInRange    = (node) => (node.year >= filterParams.yearRange.min) && 
                                  (node.year <= filterParams.yearRange.max);
-const authorSelected = (node) => !node.coreAuthor ||filterParams.authorIsActive[node.coreAuthor];
 
 // High-level filters
 const shouldKeepNode = (node) => isActiveKP    (node) ||
                                  hasActiveKP    (node) && 
-                                 yearInRange   (node) && 
-                                 authorSelected(node);
+                                 yearInRange   (node); 
 const shouldKeepLink = (nodesById, link) => {
   const sourceNode = nodesById[link.sourceId]
   const targetNode = nodesById[link.targetId]
@@ -233,7 +213,18 @@ const makeAuthorInactive = (authorId) => {
   filterGraph();
 }
 
-// 3. UPDATE GRAPH AFTER FILTERING DATA -------------------------------------------------------------------------
+// 5. GRAPH VIS HELPER FUNCTIONS -------------------------------------------------------------------------
+
+const radiusFromNode = d => {    
+  if(d.radius !== undefined) return d.radius;
+  d.degree = graph.links.filter(l => {
+    return l.source == d.id || l.target == d.id;
+  }).length;
+  d.radius = minRadius + (d.degree/12);
+  return d.keyPhrase ? 30 : d.radius; 
+}
+
+// 5. UPDATE GRAPH AFTER FILTERING DATA -------------------------------------------------------------------------
 function updateVis() {
   // Initialize layout simulation at startup
   if(!simulation) { 
@@ -281,7 +272,7 @@ function updateVis() {
     .enter()
     .append("circle")
     .attr("fill", d => getNodeColor(d))
-    .style("opacity", d => d.coreAuthor || d.keyPhrase ? 1 : nonCoreAuthorOpacity)
+    .style("opacity", nodeOpacity)
     .on("mouseover", displayNodeTooltip)
     .on("mouseout",  removeNodeTooltip)
     .on("dblclick",  openNodeSSPage)
