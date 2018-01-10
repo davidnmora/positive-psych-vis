@@ -191,7 +191,7 @@ const filterGraph = () => {
 }
 
 // Filter predicates
-const isActiveKP     = (node) => {if (filterParams.activeKPs.has(node.keyPhrase ? node.keyPhrase.toLowerCase() : undefined)) {console.log(node); return true; }}
+const isActiveKP     = (node) => filterParams.activeKPs.has(node.keyPhrase ? node.keyPhrase.toLowerCase() : undefined);
 const hasActiveKP    = (node) => {
   if (!filterParams.activeKPPapersOnly || filterParams.activeKPs.has(node.keyPhrase ? node.keyPhrase.toLowerCase() : "")) return true;
   if (!node.keyPhrases) return false;
