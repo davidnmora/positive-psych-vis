@@ -8,7 +8,7 @@ glob = {"updatingIndex": 0, "parsingCoreAuthors": True } # keeps track of what i
 
 
 # IMPORT JSON FILE
-with open("papers-by-title-SMALL.json", "r") as f: # articles (each which contain their own citations, refences)
+with open("papers-by-title.json", "r") as f: # articles (each which contain their own citations, refences)
 	papersDict = json.loads(f.read())
 
 # RETRIEVE CORE AUTHORS
