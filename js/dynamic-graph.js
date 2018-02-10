@@ -1,4 +1,4 @@
-const DynamicGraph = (d3SelectedDiv, graph) => {
+const DynamicGraph = (d3SelectedDiv) => {
   // 1. GLOBAL VARIALBES -------------------------------------------------------------------------
   
   const width = 600,
@@ -22,14 +22,10 @@ const DynamicGraph = (d3SelectedDiv, graph) => {
     .attr("width", width)
     .attr("height", height)
 
-  // 2. SETUP DATA-INDEPENDANT INTERFACE -------------------------------------------------------------------------
-
-  // tooltip for node title and author on hover
+  // TOOLTIP on hover
   let tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0)
-
-  // MOUSE AND CLICK EVENTS
 
   const displayNodeTooltip = function(d) {
     console.log(d)
@@ -69,10 +65,7 @@ const DynamicGraph = (d3SelectedDiv, graph) => {
   }
 
   // 5. UPDATE GRAPH AFTER FILTERING DATA -------------------------------------------------------------------------
-  function updateVis() {
-    nodes = graph.nodes.filter(node => true || shouldKeepNode(node))
-    links = graph.links.filter(link => true || shouldKeepLink(graph.nodesById, link))
-
+  function updateVis(nodes, links) {
     // Initialize layout simulation at startup
     if(!simulation) { 
       simulation = d3
@@ -175,8 +168,8 @@ const DynamicGraph = (d3SelectedDiv, graph) => {
   
   function _DynamicGraph() {};
 
-  _DynamicGraph.updateVis = () => {
-    updateVis()
+  _DynamicGraph.updateVis = (nodes, links) => {
+    updateVis(nodes, links)
     return _DynamicGraph
   }
   console.log(_DynamicGraph)

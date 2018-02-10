@@ -44,8 +44,11 @@ Promise.all([
 
 
   // Apply filters
+  let nodes = graph.nodes.filter(node => true || shouldKeepNode(node))
+  let links = graph.links.filter(link => true || shouldKeepLink(graph.nodesById, link))
+
   
-  let vis = DynamicGraph(d3.select("#canvas") ,graph)
-  .updateVis()
+  let vis = DynamicGraph(d3.select("#canvas"))
+  .updateVis(nodes, links)
 
   }); // Primise.then(...)
