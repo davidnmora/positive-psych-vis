@@ -81,12 +81,8 @@ const DynamicGraph = (d3SelectedDiv, graph) => {
   // 5. GRAPH VIS HELPER FUNCTIONS -------------------------------------------------------------------------
 
   const radiusFromNode = d => {    
-    if(d.radius !== undefined) return d.radius
-    d.degree = graph.links.filter(l => {
-      return l.source == d.id || l.target == d.id
-    }).length
-    d.radius = minRadius + (d.degree/12)
-    return d.keyPhrase ? 30 : d.radius 
+    if(d.radius === undefined) d.radius = minRadius 
+    return d.radius
   }
 
   // 5. UPDATE GRAPH AFTER FILTERING DATA -------------------------------------------------------------------------
