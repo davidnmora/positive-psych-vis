@@ -1,29 +1,21 @@
 const DynamicGraph = (d3SelectedDiv, graph) => {
   // 1. GLOBAL VARIALBES -------------------------------------------------------------------------
+  
   const width = 600,
         height = 600,
         minRadius = 7, // in pixles
         transitionTime = 750, // milliseconds
         centeringForce = 0.09,
-        minYear = 1950, // TO DO: WHAT'S THE VERY EARLIEST PAPER?
-        maxYear = 2017,
         linkColor      = "white",
-        paperColor     = "orange",
         keyPhraseColor = "grey"
         nodeOpacity = 0.9
 
   let links, link, nodes, node, simulation; // globals set within json request response
 
   const getNodeColor = (d) => {
-    return d.keyPhrase ? keyPhraseColor : paperColor
+    return "skyblue"
   }
 
-  // TO DO: USER SPECIFIED
-  let filterParams = {
-    activeKPPapersOnly: true,
-    yearRange: { "min": minYear, "max": maxYear },
-    authorIsActive: {}, // NOTE: using hash maps for fast lookup (values are arbitrary)
-  }
 
   let svg = d3SelectedDiv
     .append("svg")
@@ -67,16 +59,7 @@ const DynamicGraph = (d3SelectedDiv, graph) => {
       .attr("cy", d => d.y = Math.max(d.radius, Math.min(height - d.radius, d.y)))
   }
 
-  // 3. HANDLE FILTERING INTERACTIONS -------------------------------------------------------------------------
-
-  // High-level filters
-  const shouldKeepNode = (node) => true 
-  const shouldKeepLink = (nodesById, link) => {
-    const sourceNode = nodesById[link.sourceId]
-    const targetNode = nodesById[link.targetId]
-    return true || shouldKeepNode(sourceNode) && shouldKeepNode(targetNode)
-  }
-
+ 
 
   // 5. GRAPH VIS HELPER FUNCTIONS -------------------------------------------------------------------------
 
@@ -87,9 +70,9 @@ const DynamicGraph = (d3SelectedDiv, graph) => {
 
   // 5. UPDATE GRAPH AFTER FILTERING DATA -------------------------------------------------------------------------
   function updateVis() {
-    // Apply filters
-    nodes = graph.nodes.filter(node => shouldKeepNode(node))
-    links = graph.links.filter(link => shouldKeepLink(graph.nodesById, link))
+    nodes = graph.nodes.filter(node => true || shouldKeepNode(node))
+    links = graph.links.filter(link => true || shouldKeepLink(graph.nodesById, link))
+
     // Initialize layout simulation at startup
     if(!simulation) { 
       simulation = d3
@@ -191,7 +174,7 @@ const DynamicGraph = (d3SelectedDiv, graph) => {
   }
   
   function _DynamicGraph() {};
-  
+
   _DynamicGraph.updateVis = () => {
     updateVis()
     return _DynamicGraph
