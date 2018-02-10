@@ -1,27 +1,32 @@
-const DynamicGraph = (d3SelectedDiv) => {
+const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
   // 1. GLOBAL VARIALBES -------------------------------------------------------------------------
   
   // Public variables width default settings
-  const width = 600,
-        height = 600,
-        minRadius = 7, // in pixles
-        transitionTime = 750, // milliseconds
-        centeringForce = 0.09,
-        linkColor      = "white",
-        keyPhraseColor = "grey"
-        nodeOpacity = 0.9,
-        nodeColor = () => "skyblue"
-
-  let link, node, simulation; // globals set within json request response
-
-  const getNodeColor = (d) => {
-    return "skyblue"
+  let pubVar = {
+    width     : 600, // pixles
+    height    : 600, // pixles
+    minRadius : 7,   // pixles
+    transitionTime : 750, // milliseconds
+    centeringForce : 0.09,
+    linkIdsAreNodeIndex: true,
+    // Link and Node functions ("dummy" unless replaced by API call)
+    linkColor      : link => "white",
+    nodeOpacity    : node => 0.9,
+    nodeColor      : node => "skyblue",
+    nodeStartPos   : node => 100
   }
 
-  let svg = d3SelectedDiv
+  // Merge any specififed publiv variables
+  pubVar = Object.assign({}, pubVar, optionalPubVars)
+
+  // Private global variables
+  let link, node, simulation; // globals set within json request response
+  
+  // Create vis svg canvas
+  let svg = d3SelectedVisContainer
     .append("svg")
-    .attr("width", width)
-    .attr("height", height)
+    .attr("width",  pubVar.width)
+    .attr("height", pubVar.height)
 
   // TOOLTIP -------------------------------------------------------------------------
   let tooltip = d3.select("body").append("div")
@@ -52,14 +57,14 @@ const DynamicGraph = (d3SelectedDiv) => {
       .attr("y2", d => d.target.y)
 
     node
-      .attr("cx", d => d.x = Math.max(d.radius, Math.min(width - d.radius, d.x)))
-      .attr("cy", d => d.y = Math.max(d.radius, Math.min(height - d.radius, d.y)))
+      .attr("cx", d => d.x = Math.max(d.radius, Math.min(pubVar.width - d.radius, d.x)))
+      .attr("cy", d => d.y = Math.max(d.radius, Math.min(pubVar.height - d.radius, d.y)))
   }
 
   // 5. GRAPH VIS HELPER FUNCTIONS -------------------------------------------------------------------------
 
   const radiusFromNode = d => {    
-    if(d.radius === undefined) d.radius = minRadius 
+    if(d.radius === undefined) d.radius = pubVar.minRadius 
     return d.radius
   }
 
@@ -71,9 +76,9 @@ const DynamicGraph = (d3SelectedDiv) => {
         .forceSimulation()
         .force("link", d3.forceLink().id(node => node.id))
         .force("charge", d3.forceManyBody().strength(-20))
-        .force("center", d3.forceCenter(width / 2, height / 2))
-        .force("x", d3.forceX(width  / 2).strength(centeringForce))
-        .force("y", d3.forceY(height / 2).strength(centeringForce))
+        .force("center", d3.forceCenter(pubVar.width / 2, pubVar.height / 2))
+        .force("x", d3.forceX(pubVar.width  / 2).strength(pubVar.centeringForce))
+        .force("y", d3.forceY(pubVar.height / 2).strength(pubVar.centeringForce))
         .velocityDecay(0.8)
       simulation.nodes(nodes).on("tick", ticked)
       simulation.force("link").links(links)
@@ -95,7 +100,7 @@ const DynamicGraph = (d3SelectedDiv) => {
         .attr("class", "nodes")
         .selectAll("circle")
 
-      nodes.forEach(d => { d.x = d.cx = d.y = d.cy = 100})
+      nodes.forEach(d => { d.x = d.cx = d.y = d.cy = pubVar.nodeStartPos(d)})
     }
 
     // Apply the general update pattern to the nodes.
@@ -103,30 +108,30 @@ const DynamicGraph = (d3SelectedDiv) => {
 
     node
       .exit()
-      .transition().duration(transitionTime)
+      .transition().duration(pubVar.transitionTime)
       .attr("r", 0)
       .remove()
 
     node = node
       .enter()
       .append("circle")
-      .attr("fill", nodeColor)
-      .style("opacity", nodeOpacity)
+      .attr("fill", pubVar.nodeColor)
+      .style("opacity", pubVar.nodeOpacity)
       .on("mouseover", displayNodeTooltip)
       .on("mouseout",  removeNodeTooltip)
-      .call(node => { node.transition().duration(transitionTime).attr("r", radiusFromNode); })
+      .call(node => { node.transition().duration(pubVar.transitionTime).attr("r", radiusFromNode); })
       .call(
         d3
           .drag()
           .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended)
+          .on("drag",  dragged)
+          .on("end",   dragended)
       )
       .merge(node)
 
     // Apply the general update pattern to the links.
     // Keep the exiting links connected to the moving remaining nodes.
-    link.exit().transition().duration(transitionTime)
+    link.exit().transition().duration(pubVar.transitionTime)
       .attr("stroke-opacity", 0)
       .attrTween("x1", function(d) { return function() { return d.source.x; }; })
       .attrTween("x2", function(d) { return function() { return d.target.x; }; })
@@ -136,7 +141,7 @@ const DynamicGraph = (d3SelectedDiv) => {
 
     link = link.enter().append("line")
       .call(function(link) { link.transition().attr("stroke-opacity", 1); })
-      .attr("stroke", linkColor)
+      .attr("stroke", pubVar.linkColor)
       .attr("stroke-width", 4)
       .merge(link)
 
@@ -164,20 +169,22 @@ const DynamicGraph = (d3SelectedDiv) => {
     d.fy = null
   }
   
-  // RETURN OBJECT WITH NECESSARY API ______________________________
+  // CREATE API ______________________________
   function _DynamicGraph() {};
 
+  // (Re)starts graph layout with given nodes and links
   _DynamicGraph.updateVis = (nodes, links) => {
     nodes && links ? updateVis(nodes, links) : console.error("Error: paramters should be: DyanmicGraph.udpateVis(nodes, links)")
     return _DynamicGraph
   }
 
   // Optional settable values
+
+  // 
   _DynamicGraph.nodeColor = (colorSetter) => {
-    if (colorSetter) nodeColor = colorSetter
+    if (colorSetter) pubVar.nodeColor = colorSetter
     return _DynamicGraph
   }
 
   return _DynamicGraph // for future api calls
-
 }

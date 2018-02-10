@@ -18,11 +18,11 @@ let filterParams = {
   }
   
   // High-level filters
-  const shouldKeepNode = (node) => true 
+  const shouldKeepNode = (node) => (node.index % 2) === 0
   const shouldKeepLink = (nodesById, link) => {
     const sourceNode = nodesById[link.sourceId]
     const targetNode = nodesById[link.targetId]
-    return true || shouldKeepNode(sourceNode) && shouldKeepNode(targetNode)
+    return shouldKeepNode(sourceNode) && shouldKeepNode(targetNode)
   }
 
 
@@ -30,26 +30,28 @@ let filterParams = {
 Promise.all([
   new Promise((res,rej) => d3.json(graphDataJSONPath, function(error, JSONdata) { if(error) { rej(error) } else { res(JSONdata) } }))  
   ])
-.then(([_graph]) => {
-  graph = _graph
-  graph.nodesById = {}
-  for (const node of graph.nodes) {
-    graph.nodesById[node.id] = node
-  }
-  for (const link of graph.links) {
-    link.sourceId = link.source
-    link.targetId = link.target
-  }
-  console.log(graph)
+  .then(([_graph]) => {
+    graph = _graph
+    graph.nodesById = {}
+    for (const node of graph.nodes) {
+      graph.nodesById[node.id] = node
+    }
+    for (const link of graph.links) {
+      link.sourceId = link.source
+      link.targetId = link.target
+    }
+    
+    // Launch vis
+    let nodes = graph.nodes
+    let links = graph.links
 
+    let vis = DynamicGraph(d3.select("#canvas"), { width: 1000 })
+                .nodeColor("darkred")
+                .updateVis(nodes, links)
 
-  // Apply filters
-  let nodes = graph.nodes.filter(node => true || shouldKeepNode(node))
-  let links = graph.links.filter(link => true || shouldKeepLink(graph.nodesById, link))
-
-  
-  let vis = DynamicGraph(d3.select("#canvas"))
-              .nodeColor("darkred")
-              .updateVis(nodes, links)
+    // Update vis
+    nodes = graph.nodes.filter(node => shouldKeepNode(node))
+    links = graph.links.filter(link => shouldKeepLink(graph.nodesById, link))
+    setTimeout(() => vis.updateVis(nodes, links), 2000)
 
   }); // Primise.then(...)
