@@ -49,6 +49,7 @@ Promise.all([
 
   
   let vis = DynamicGraph(d3.select("#canvas"))
-  .updateVis(nodes, links)
+              .nodeColor("darkred")
+              .updateVis(nodes, links)
 
   }); // Primise.then(...)

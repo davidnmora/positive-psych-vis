@@ -1,6 +1,7 @@
 const DynamicGraph = (d3SelectedDiv) => {
   // 1. GLOBAL VARIALBES -------------------------------------------------------------------------
   
+  // Public variables width default settings
   const width = 600,
         height = 600,
         minRadius = 7, // in pixles
@@ -8,21 +9,21 @@ const DynamicGraph = (d3SelectedDiv) => {
         centeringForce = 0.09,
         linkColor      = "white",
         keyPhraseColor = "grey"
-        nodeOpacity = 0.9
+        nodeOpacity = 0.9,
+        nodeColor = () => "skyblue"
 
-  let links, link, nodes, node, simulation; // globals set within json request response
+  let link, node, simulation; // globals set within json request response
 
   const getNodeColor = (d) => {
     return "skyblue"
   }
-
 
   let svg = d3SelectedDiv
     .append("svg")
     .attr("width", width)
     .attr("height", height)
 
-  // TOOLTIP on hover
+  // TOOLTIP -------------------------------------------------------------------------
   let tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0)
@@ -54,8 +55,6 @@ const DynamicGraph = (d3SelectedDiv) => {
       .attr("cx", d => d.x = Math.max(d.radius, Math.min(width - d.radius, d.x)))
       .attr("cy", d => d.y = Math.max(d.radius, Math.min(height - d.radius, d.y)))
   }
-
- 
 
   // 5. GRAPH VIS HELPER FUNCTIONS -------------------------------------------------------------------------
 
@@ -111,7 +110,7 @@ const DynamicGraph = (d3SelectedDiv) => {
     node = node
       .enter()
       .append("circle")
-      .attr("fill", d => getNodeColor(d))
+      .attr("fill", nodeColor)
       .style("opacity", nodeOpacity)
       .on("mouseover", displayNodeTooltip)
       .on("mouseout",  removeNodeTooltip)
@@ -126,7 +125,6 @@ const DynamicGraph = (d3SelectedDiv) => {
       .merge(node)
 
     // Apply the general update pattern to the links.
-
     // Keep the exiting links connected to the moving remaining nodes.
     link.exit().transition().duration(transitionTime)
       .attr("stroke-opacity", 0)
@@ -166,15 +164,20 @@ const DynamicGraph = (d3SelectedDiv) => {
     d.fy = null
   }
   
+  // RETURN OBJECT WITH NECESSARY API ______________________________
   function _DynamicGraph() {};
 
   _DynamicGraph.updateVis = (nodes, links) => {
-    updateVis(nodes, links)
+    nodes && links ? updateVis(nodes, links) : console.error("Error: paramters should be: DyanmicGraph.udpateVis(nodes, links)")
     return _DynamicGraph
   }
-  console.log(_DynamicGraph)
 
+  // Optional settable values
+  _DynamicGraph.nodeColor = (colorSetter) => {
+    if (colorSetter) nodeColor = colorSetter
+    return _DynamicGraph
+  }
 
-  return _DynamicGraph
+  return _DynamicGraph // for future api calls
 
 }
