@@ -7,13 +7,17 @@ const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
     transitionTime : 750, // milliseconds
     centeringForce : 0.09,
     // e.g. Nodes: [{id: "foo"}, {id: "bar"}] Links: [{source: "foo", target: "bar"}]
-    nodeRefProp: "id", 
+    nodeRefProp: "id",
+    unfocusOpacity: 0.3, 
+    focusOpacity  : 1,
+    unfocusStrokeThickness: 0.5,
+    focusStrokeThickness  : 5,
     // Link and Node functions ("dummy" unless replaced by API call)
     linkColor       : link => "white",
     nodeOpacity     : node => 0.9,
     nodeColor       : node => "skyblue",
     nodeStartPos    : node => 100, // x and y, in pixels
-    nodeRadius      : node => 7, // pixles
+    nodeRadius      : node => 5, // pixles
     tooltipInnerHTML: node => node["id"]
   }
 
@@ -50,21 +54,30 @@ const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
       .style("opacity", 0)
   }
 
-  const fadeNonNearestNeighbors = (node, links) => {
+  const setLinkStrokeWidth = (link, thickness) => d3.select(".link-" + link.source[pubVar.nodeRefProp] + ".link-" + link.target[pubVar.nodeRefProp])
+                                .attr("stroke-width", pubVar.focusStrokeThickness)
+
+  const focusNode = (node, links) => {
     // get all neighbors
     neighborsSet = new Set()
-    d3.selectAll("line.link").style("opacity", l => {
-      if (l.source[pubVar.nodeRefProp] === node[pubVar.nodeRefProp]) {
-        neighborsSet.add(l.target[pubVar.nodeRefProp])
-      } else if (l.target[pubVar.nodeRefProp] === node[pubVar.nodeRefProp]) {
-        neighborsSet.add(l.source[pubVar.nodeRefProp])
-      } else {
-        // TO DO: fade link
+    d3.selectAll("line.link").style("opacity", link => {
+      if (link.source[pubVar.nodeRefProp] === node[pubVar.nodeRefProp]) {
+        neighborsSet.add(link.target[pubVar.nodeRefProp])
+        setLinkStrokeWidth(link, pubVar.focusStrokeThickness)
+      } else if (link.target[pubVar.nodeRefProp] === node[pubVar.nodeRefProp]) {
+        neighborsSet.add(link.source[pubVar.nodeRefProp])
+        setLinkStrokeWidth(link, pubVar.focusStrokeThickness)
       }
     })
+    neighborsSet.add(node[pubVar.nodeRefProp])
     d3.selectAll("circle.node").style("opacity", node => {
-      return neighborsSet.has(node[pubVar.nodeRefProp]) ? 1 : 0.3
+      return neighborsSet.has(node[pubVar.nodeRefProp]) ? pubVar.focusOpacity : pubVar.unfocusOpacity
     })
+  }
+
+  const unfocusNode = (node, links) => {
+    d3.selectAll("circle.node").style("opacity", pubVar.nodeOpacity)
+    d3.selectAll("line.link")  .attr("stroke-width", pubVar.unfocusStrokeThickness)
   }
 
   // Update positions at each frame refresh
@@ -138,11 +151,11 @@ const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
       .style("opacity", pubVar.nodeOpacity)
       .on("mouseover", node => {
         displayNodeTooltip(node)
-        fadeNonNearestNeighbors(node, links)
+        focusNode(node, links)
       })
       .on("mouseout", node => {
         removeNodeTooltip(node)
-        d3.selectAll("circle.node").style("opacity", pubVar.nodeOpacity)
+        unfocusNode(node, links)
       })
       .call(node => { node.transition().duration(pubVar.transitionTime).attr("r", pubVar.nodeRadius); })
       .call(
@@ -165,10 +178,10 @@ const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
       .remove()
 
     link = link.enter().append("line")
-      .attr("class", "link")
+      .attr("class", link => "link link-" + link.source[pubVar.nodeRefProp] + " link-" + link.target[pubVar.nodeRefProp])
       .call(function(link) { link.transition().attr("stroke-opacity", 1); })
       .attr("stroke", pubVar.linkColor)
-      .attr("stroke-width", 4)
+      .attr("stroke-width", pubVar.unfocusStrokeThickness)
       .merge(link)
 
     // Update and restart the simulation.
