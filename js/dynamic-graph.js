@@ -8,13 +8,12 @@ const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
     centeringForce : 0.09,
     // e.g. Nodes: [{id: "foo"}, {id: "bar"}] Links: [{source: "foo", target: "bar"}]
     nodeRefProp: "id",
-    unfocusOpacity: 0.3, 
-    focusOpacity  : 1,
+    unfocusOpacity: 0.4, 
+    focusOpacity  : 0.95,
     unfocusStrokeThickness: 0.5,
     focusStrokeThickness  : 5,
     // Link and Node functions ("dummy" unless replaced by API call)
     linkColor       : link => "white",
-    nodeOpacity     : node => 0.9,
     nodeColor       : node => "skyblue",
     nodeStartPos    : node => 100, // x and y, in pixels
     nodeRadius      : node => 5, // pixles
@@ -55,29 +54,52 @@ const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
   }
 
   const setLinkStrokeWidth = (link, thickness) => d3.select(".link-" + link.source[pubVar.nodeRefProp] + ".link-" + link.target[pubVar.nodeRefProp])
-                                .attr("stroke-width", pubVar.focusStrokeThickness)
+                                .attr("stroke-width", thickness)
 
-  const focusNode = (node, links) => {
-    // get all neighbors
-    neighborsSet = new Set()
+  // Toggles node and its nearest neighbors display, with respect to isInFocus param
+  const changeNodeFocus = (node, links, isInFocus) => {
+    const centerNodeId = node[pubVar.nodeRefProp]
+    const strokeThickness = isInFocus ? pubVar.focusStrokeThickness : pubVar.unfocusStrokeThickness
+    // Get all neighbors via links, setting the link thickness simultaniously
+    const neighborsSet = new Set([node[pubVar.nodeRefProp]])
     d3.selectAll("line.link").style("opacity", link => {
       if (link.source[pubVar.nodeRefProp] === node[pubVar.nodeRefProp]) {
         neighborsSet.add(link.target[pubVar.nodeRefProp])
-        setLinkStrokeWidth(link, pubVar.focusStrokeThickness)
+        setLinkStrokeWidth(link, strokeThickness)
       } else if (link.target[pubVar.nodeRefProp] === node[pubVar.nodeRefProp]) {
         neighborsSet.add(link.source[pubVar.nodeRefProp])
-        setLinkStrokeWidth(link, pubVar.focusStrokeThickness)
+        setLinkStrokeWidth(link, strokeThickness)
       }
     })
-    neighborsSet.add(node[pubVar.nodeRefProp])
+    // Set the opacity of ego-node and neighbor nodes
     d3.selectAll("circle.node").style("opacity", node => {
-      return neighborsSet.has(node[pubVar.nodeRefProp]) ? pubVar.focusOpacity : pubVar.unfocusOpacity
-    })
-  }
+      const keepStatusQuo = (node) => {
+        // Leave remaining "focused" highlighted
+        if (node.focused)  return pubVar.focusOpacity
+        if (!node.focused) return pubVar.unfocusOpacity
+      }
 
-  const unfocusNode = (node, links) => {
-    d3.selectAll("circle.node").style("opacity", pubVar.nodeOpacity)
-    d3.selectAll("line.link")  .attr("stroke-width", pubVar.unfocusStrokeThickness)
+      if (isInFocus) {
+        // Highlight node and neighbors
+        if (neighborsSet.has(node[pubVar.nodeRefProp]) 
+             || node.clicked
+             || node.focused) {
+          node.focused = true
+          return pubVar.focusOpacity
+        }
+        return keepStatusQuo(node)
+      }
+
+      // Un-highlight appropriate nodes
+      if (!isInFocus) {
+        // Unhighlight central node and direct neighbors (who haven't themselves been clicked)
+        if (neighborsSet.has(node[pubVar.nodeRefProp]) && !node.clicked) {
+          node.focused = false
+          return pubVar.unfocusOpacity
+        }
+        return keepStatusQuo(node)
+      }
+    })
   }
 
   // Update positions at each frame refresh
@@ -151,11 +173,21 @@ const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
       .style("opacity", pubVar.nodeOpacity)
       .on("mouseover", node => {
         displayNodeTooltip(node)
-        focusNode(node, links)
+        changeNodeFocus(node, links, true)
       })
-      .on("mouseout", node => {
-        removeNodeTooltip(node)
-        unfocusNode(node, links)
+      .on("mouseout",  node => {
+        if (!node.clicked) {
+          removeNodeTooltip(node)
+          changeNodeFocus(node, links, false)
+        }
+      })
+      .on("click",     node => {
+        node.clicked = !node.clicked
+        if (!node.clicked) {
+          removeNodeTooltip(node)
+          changeNodeFocus(node, links, false)
+        }
+       
       })
       .call(node => { node.transition().duration(pubVar.transitionTime).attr("r", pubVar.nodeRadius); })
       .call(
