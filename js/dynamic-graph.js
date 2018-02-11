@@ -1,23 +1,24 @@
 const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
   // 1. GLOBAL VARIALBES -------------------------------------------------------------------------
-  
   // Public variables width default settings
   let pubVar = {
     width     : 600, // pixles
     height    : 600, // pixles
-    minRadius : 7,   // pixles
     transitionTime : 750, // milliseconds
     centeringForce : 0.09,
-    linkIdsAreNodeIndex: true,
+    // e.g. Nodes: [{id: "foo"}, {id: "bar"}] Links: [{source: "foo", target: "bar"}]
+    nodeRefProp: "id", 
     // Link and Node functions ("dummy" unless replaced by API call)
-    linkColor      : link => "white",
-    nodeOpacity    : node => 0.9,
-    nodeColor      : node => "skyblue",
-    nodeStartPos   : node => 100
+    linkColor       : link => "white",
+    nodeOpacity     : node => 0.9,
+    nodeColor       : node => "skyblue",
+    nodeStartPos    : node => 100, // x and y, in pixels
+    nodeRadius      : node => 7, // pixles
+    tooltipInnerHTML: node => node["id"]
   }
 
   // Merge any specififed publiv variables
-  pubVar = Object.assign({}, pubVar, optionalPubVars)
+  if (optionalPubVars) pubVar = Object.assign({}, pubVar, optionalPubVars)
 
   // Private global variables
   let link, node, simulation; // globals set within json request response
@@ -28,27 +29,45 @@ const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
     .attr("width",  pubVar.width)
     .attr("height", pubVar.height)
 
-  // TOOLTIP -------------------------------------------------------------------------
+  // FOCUS NODE: TOOLTIP AND NEIGHBOR HIGHLIGHT -------------------------------------------------------------------------
   let tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0)
 
-  const displayNodeTooltip = function(d) {
+  const displayNodeTooltip = d => {
     console.log(d)
     tooltip.transition()
       .duration(200)
       .style("opacity", .9)
-    tooltip.html("DEFAULT TEXT")
+    tooltip.html(pubVar.tooltipInnerHTML(d))
       .style("left", (d3.event.pageX) + "px")
       .style("top", (d3.event.pageY - 28) + "px")
   }
 
-  const removeNodeTooltip = function(d) {
+  const removeNodeTooltip = d => {
     tooltip.transition()
       .duration(500)
       .style("opacity", 0)
   }
 
+  const fadeNonNearestNeighbors = (node, links) => {
+    // get all neighbors
+    neighborsSet = new Set()
+    d3.selectAll("line.link").style("opacity", l => {
+      if (l.source[pubVar.nodeRefProp] === node[pubVar.nodeRefProp]) {
+        neighborsSet.add(l.target[pubVar.nodeRefProp])
+      } else if (l.target[pubVar.nodeRefProp] === node[pubVar.nodeRefProp]) {
+        neighborsSet.add(l.source[pubVar.nodeRefProp])
+      } else {
+        // TO DO: fade link
+      }
+    })
+    d3.selectAll("circle.node").style("opacity", node => {
+      return neighborsSet.has(node[pubVar.nodeRefProp]) ? 1 : 0.3
+    })
+  }
+
+  // Update positions at each frame refresh
   function ticked() {
     link
       .attr("x1", d => d.source.x)
@@ -62,7 +81,6 @@ const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
   }
 
   // 5. GRAPH VIS HELPER FUNCTIONS -------------------------------------------------------------------------
-
   const radiusFromNode = d => {    
     if(d.radius === undefined) d.radius = pubVar.minRadius 
     return d.radius
@@ -115,11 +133,18 @@ const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
     node = node
       .enter()
       .append("circle")
+      .attr("class", "node")
       .attr("fill", pubVar.nodeColor)
       .style("opacity", pubVar.nodeOpacity)
-      .on("mouseover", displayNodeTooltip)
-      .on("mouseout",  removeNodeTooltip)
-      .call(node => { node.transition().duration(pubVar.transitionTime).attr("r", radiusFromNode); })
+      .on("mouseover", node => {
+        displayNodeTooltip(node)
+        fadeNonNearestNeighbors(node, links)
+      })
+      .on("mouseout", node => {
+        removeNodeTooltip(node)
+        d3.selectAll("circle.node").style("opacity", pubVar.nodeOpacity)
+      })
+      .call(node => { node.transition().duration(pubVar.transitionTime).attr("r", pubVar.nodeRadius); })
       .call(
         d3
           .drag()
@@ -140,6 +165,7 @@ const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
       .remove()
 
     link = link.enter().append("line")
+      .attr("class", "link")
       .call(function(link) { link.transition().attr("stroke-opacity", 1); })
       .attr("stroke", pubVar.linkColor)
       .attr("stroke-width", 4)
@@ -180,9 +206,24 @@ const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
 
   // Optional settable values
 
-  // 
+  // Provide a custom function to set node colors on vis update
   _DynamicGraph.nodeColor = (colorSetter) => {
-    if (colorSetter) pubVar.nodeColor = colorSetter
+    if (!colorSetter) return pubVar.nodeColor
+    pubVar.nodeColor = colorSetter
+    return _DynamicGraph
+  }
+
+  // Provide a custom function to set node colors on vis update
+  _DynamicGraph.tooltipInnerHTML = (innerHTML) => {
+    if (!innerHTML) return pubVar.tooltipInnerHTML
+    pubVar.tooltipInnerHTML = innerHTML
+    return _DynamicGraph
+  }
+
+  // Provide a custom function to set node colors on vis update
+  _DynamicGraph.nodeRadius = (radiusSetter) => {
+    if (!radiusSetter) return pubVar.nodeRadius
+    pubVar.nodeRadius = radiusSetter
     return _DynamicGraph
   }
 
