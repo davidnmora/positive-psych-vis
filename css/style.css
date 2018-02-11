@@ -1,32 +1,8 @@
 body {
-  margin: 0;
   background-color: #090812;
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   color: #fff;
 }
 
-h1 {
-	font-size: 3em;
-	font-weight: bold;
-}
-
-h3 {
-	font-weight: lighter;
-}
-
-#container {
-	margin: 50px;
-}
-
-#vis-container {
-  float: left;
-}
-
-#core-authors-list-container {
-  display: inline;
-  width: 250px;
-
-}
 
 .nodes {
   stroke-width: 1;
@@ -45,44 +21,4 @@ div.tooltip {
   border: 0px;
   border-radius: 8px;
   pointer-events: none;
-}
-
-.key-phrase {
-  font-size: 25px;
-}
-
-/* buttons. Citation: Baltazar Gomez on CodePen */
-
-button {
-  width: 200px;
-  outline: 0;
-  border: 0;
-  background: none;
-  margin: 5px;
-  padding: 10px 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 50px;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-#active-KP-papers-only-toggle {
-	border: 2px solid white;
-}
-
-/* sliders */
-.d3-slider-horizontal {
-  width: 700px;
-}
-
-#POI-sliders.active {
-  opacity: 1;
-}
-
-#POI-sliders {
-  opacity: 0.3;
 }
