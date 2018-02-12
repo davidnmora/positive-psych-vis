@@ -3,13 +3,10 @@ body {
   color: #fff;
 }
 
-
 .nodes {
   stroke-width: 1;
   stroke: black;
 }
-
-/*Tooltip*/
 
 div.tooltip {
   position: absolute;

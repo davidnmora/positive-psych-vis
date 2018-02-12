@@ -170,7 +170,7 @@ const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
       .append("circle")
       .attr("class", "node")
       .attr("fill", pubVar.nodeColor)
-      .style("opacity", pubVar.nodeOpacity)
+      .style("opacity", pubVar.unfocusOpacity)
       .on("mouseover", node => {
         displayNodeTooltip(node)
         changeNodeFocus(node, links, true)
