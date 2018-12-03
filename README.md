@@ -3,9 +3,11 @@
 # positive-psych-vis
 Understanding of how positive psychology's research papers, authors, and applications fit together remains trapped inside the minds of experts — how do we give novices that sort of perspective on the field's "knowledge landscape"?
 
-This project visualizes the citation network 19 of positive psychology's most important authors interactively over time, showing all the papers they've written, and drawing links between papers who were highly influential on each other.
+This project is an initial prototype of how one might do that. It visualizes the citation network __19 of positive psychology's most important authors__ interactively over time, showing all the papers they've written, and drawing links between papers who were highly influential on each other.
 
-## How to use:
+## [Play with it a demo here](https://davidnmora.github.io//positive-psych-vis/)
+
+## Download it and play with the code:
 Download repo, then 
 ```
 cd ~/Downloads/positive-psych-vis
