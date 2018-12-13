@@ -4,7 +4,8 @@
 	<meta charset="UTF-8">
 	<title>Force layout with positive psych data</title>
 
-	<link rel="stylesheet" href='css/d3.slider.css'></link>
+	<link rel="stylesheet" href='css/d3.slider.css'>
+	<style>@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400');</style>
 	<link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -13,7 +14,7 @@
 	<div id="container">
 		<h1>Positive Psychology over Time and Author</h1>
 		<div id="vis-container">
-			<button id="coreAuthorsSwitch" class="core-author-toggle" type="button">Toggle non-Core Authors Papers</button>
+			<button id="toggle-all-authors" class="core-author-toggle" type="button">Select/deselect all authors</button>
 			<h3>Positive Psychology Over Time:</h3>
 			<h3>
 				between: <span id="timeline-range-slider-min"></span> 
@@ -29,7 +30,7 @@
 
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<script src="js/d3.slider.js"></script>
-	<script  src="js/index.js"></script>
+	<script src="js/index.js"></script>
 
 </body>
 </html>

@@ -1,10 +1,5 @@
 console.clear();
 
-document.querySelector("#coreAuthorsSwitch").addEventListener("click", () => {
-  filterParams.coreAuthorsOnly = !filterParams.coreAuthorsOnly
-  filterGraph()
-})
-
 // 1. GLOBAL VARIALBES -------------------------------------------------------------------------
 
 const graphDataJSON = "data/graph-data.json"
@@ -123,10 +118,10 @@ Promise.all([
   coreAuthorsById = _coreAuthorsById
   console.log(graph);
 
-  // create core-authors list buttons via a JSON request
-  Object.keys(coreAuthorsById).forEach((authorId, i) => { 
-    authorColor[authorId] = color(i); 
-    filterParams.authorIsActive[authorId] = true; 
+  // create core-authors list buttons
+  Object.keys(coreAuthorsById).forEach((authorId, i) => {
+    authorColor[authorId] = color(i);
+    filterParams.authorIsActive[authorId] = true;
   })
 
   d3.select("#core-authors-list-container")
@@ -140,11 +135,26 @@ Promise.all([
     .attr("class",  authorId => { makeAuthorActive(authorId, false); return "active"; })
     .attr("border", authorId => "2px solid " + authorColor[authorId])
     .on("click"   , authorId => {
-      filterParams.authorIsActive[authorId] 
-        ? makeAuthorInactive(authorId) 
+      filterParams.authorIsActive[authorId]
+        ? makeAuthorInactive(authorId)
         : makeAuthorActive(authorId);
     })
-
+  
+  // Core authors toggle button
+	d3.select("#toggle-all-authors").on("click", () => {
+	  console.log('before:', filterParams.authorIsActive)
+   
+		let coreAuthorIds = Object.keys(coreAuthorsById)
+	  // If an author exists, turn em all off
+    if (Object.values(filterParams.authorIsActive).some(isActive => isActive)) {
+			coreAuthorIds.forEach(authorId => makeAuthorInactive(authorId, false))
+    } else { // If no author exists, turn em all on
+			coreAuthorIds.forEach(authorId => makeAuthorActive(authorId, false))
+    }
+		console.log('after:', filterParams.authorIsActive)
+		filterGraph()
+	})
+  
   filterGraph()
 }); // closes graph data JSON call
 
@@ -184,7 +194,7 @@ const shouldKeepLink = (nodesById, link) => {
   return shouldKeepNode(sourceNode) && shouldKeepNode(targetNode);
 }
 
-const makeAuthorActive = (authorId, shouldFilterGraphAfter = true) => {
+const makeAuthorActive = (authorId, shouldFilterGraphAfter=true) => {
   d3.select("#button-" + authorId)
     .style("color",  "white")
     .style("background", authorColor[authorId])
@@ -193,13 +203,13 @@ const makeAuthorActive = (authorId, shouldFilterGraphAfter = true) => {
   if (shouldFilterGraphAfter) filterGraph();
 }
 
-const makeAuthorInactive = (authorId) => {
+const makeAuthorInactive = (authorId, shouldFilterGraphAfter=true) => {
   d3.select("#button-" + authorId)
     .style("color",  authorColor[authorId])
     .style("background", "none")
     .classed("active", false)
   filterParams.authorIsActive[authorId] = false;
-  filterGraph();
+	if (shouldFilterGraphAfter) filterGraph();
 }
 
 // 3. UPDATE GRAPH AFTER FILTERING DATA -------------------------------------------------------------------------

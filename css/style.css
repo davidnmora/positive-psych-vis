@@ -1,7 +1,7 @@
 body {
   margin: 0;
   background-color: #090812;
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   color: #fff;
 }
 
@@ -54,19 +54,21 @@ div.tooltip {
 }
 
 button {
+  position: relative;
+
   outline: 0;
   border: 0;
   background: none;
-  margin: 25px;
+  margin: 6px;
   padding: 10px 35px;
-  font-family: 'Montserrat', sans-serif;
+  border-radius: 10px;
+  width: 270px;
+
   font-size: 10px;
   color: #fff;
   cursor: pointer;
-  border-radius: 50px;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  position: relative;
+
+  transition: all 0.5s ease;
 }
 
 button.core-author-toggle {
