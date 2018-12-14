@@ -5,32 +5,84 @@
 	<title>Force layout with positive psych data</title>
 
 	<link rel="stylesheet" href='css/d3.slider.css'>
-	<style>@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400');</style>
 	<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
-	<div id="container">
-		<h1>Positive Psychology over Time and Author</h1>
-		<div id="vis-container">
-			<button id="toggle-all-authors" class="core-author-toggle" type="button">Select/deselect all authors</button>
-			<h3>Positive Psychology Over Time:</h3>
-			<h3>
-				between: <span id="timeline-range-slider-min"></span> 
-				<br>
-				........and: <span id="timeline-range-slider-max"></span> 
-			</h3>
-			<div id="timeline-range-slider"></div>
-			<div id="canvas"></div>
-		</div>
-		<div id="core-authors-list-container"></div>
+<a href="https://github.com/davidnmora/positive-psych-vis"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 
+<section id="preamble-section">
+	<div class="prose-wrapper">
+		<p>One fine day in the late 90s, a psychologist snaps at his young daughter.</p>
+		<p>She snaps back.</p>
+		<p>From this moment sprouts <b>an entirely new field of psychology.</b> A field unlike anything before it.</p>
+		<p>As you read this, hundreds of psychologists around the world are hard at work in this new field: conspiring to unlock the secrets of what makes us <b>happy, healthy, creative, and resilient.</b></p>
+		<p>What they're discovering will quietly <b>shape the future of humanity.</b></p>
+		<p>This is a story of <b>how they came to be.</b></p>
 	</div>
+</section>
 
-	<script src="https://d3js.org/d3.v4.min.js"></script>
-	<script src="js/d3.slider.js"></script>
-	<script src="js/index.js"></script>
+<section id="title-section">
+	<div class="opening-title">
+		<div>This is the story of</div>
+		<h1 class="big">Positive</h1>
+		<h1 class="medium">Psychology</h1>
+	</div>
+</section>
+
+<section id="martin-seligman">
+	<div class="prose-wrapper">
+		<p>Back to the grumpy psychologist and his daughter.</p>
+		<p>His name is Martin Seligman. And when he snaps at his daughter, she hits him with a retort that sends all of psychology realing:</p>
+		<p>"Daddy, stop being so grumpy. I used to be a whiney baby, but I learned to handle myself. <b>So you learn to be less grumpy, too.</b>" </p>
+		<p>Mindflowing, right? Yeah, not so much...</p>
+		<p>To understand why this was so world-shaking for Martin Seligman, realize that up to now he's spent his life studying people who feel depressed, fearful, and helpless.</p>
+		<p>Cheery stuff, right?</p>
+		<p>I mean, imagine the the rush of purpose and joy Seligman must have felt when he published his big paper, <i><b>"Chronic fear produced by unpredictable electric shock."</b></i></p>
+		<p>But this focus on human disfunction isn't surprising: <i><b>up until now,psychology essentially comprised of trying to diagnose and fix super messed up people.</b></i></p>
+		<p>So it's no surprise Martin Seligman ran around electricuting people into chronic fear.</p>
+		<p>But it got more depressing. Seligman started to realize that people weren't just <i>inflicted</i> with bad psychology:
+			<b>actually, otherwise healthy people were actively learning behaviors which steam rolled their own mental health.</b>
+		</p>
+		<p>Enter Seligman's no-nonsense daughter.</p>
+		<p>Her retort sent him in a new direction:
+			<b>if he'd uncovered ways people learned to wreck their mind,
+				<i>could he discover ways that people could learn to build happier, healthier minds?</i>
+			</b>
+		</p>
+		<p>Oh, yeah, and then he got elected president of the American Psychological Association.</p>
+		<p>Things were about to change...</p>
+	</div>
+</section>
+
+<section>
+	<div class="prose-wrapper">
+		<h1>[More coming soon.]</h1>
+		<p>For now checkout the vis of Positive Psychology pioneers below.</p>
+	</div>
+</section>
+
+<section>
+	<div id="vis-container">
+		<h3>Positive Psychology Over Time:</h3>
+		<h3>
+			between: <span id="timeline-range-slider-min"></span>
+			<br>
+			........and: <span id="timeline-range-slider-max"></span>
+		</h3>
+		<div id="timeline-range-slider"></div>
+		<div id="canvas"></div>
+	</div>
+	<div id="core-authors-list-container">
+		<button id="toggle-all-authors" class="core-author-toggle" type="button">Select/deselect all authors</button>
+	</div>
+</section>
+
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="js/d3.slider.js"></script>
+<script src="js/index.js"></script>
 
 </body>
 </html>
