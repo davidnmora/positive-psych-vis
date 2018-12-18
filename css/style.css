@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:200,300,400');
+
 body {
   margin: 0;
   background-color: #090812;
@@ -5,21 +7,63 @@ body {
   color: #fff;
 }
 
-h1 {
-	font-size: 3em;
-	font-weight: bold;
-}
-
 h3 {
 	font-weight: lighter;
 }
 
-#container {
-	margin: 50px;
+section#preamble-section {
+
 }
 
-#vis-container {
-  float: left;
+section#title-section {
+  background: #aaaaaa;
+}
+
+/*Vis*/
+
+section#vis .container {
+  display: flex;
+}
+
+section#vis .container .item {
+  font-weight: 300;
+  margin: 12px;
+}
+
+.vis-big-titles {
+  font-size: 44px;
+}
+
+
+.opening-title {
+  max-width: 500px;
+  margin: auto;
+  padding: 60px;
+}
+
+.opening-title > h1 {
+  font-weight: bold;
+  margin: 0;
+}
+
+.opening-title > h1.big {
+  font-size: 8em;
+}
+
+.opening-title > h1.medium {
+  font-size: 6em;
+}
+
+.prose-wrapper {
+  font-weight: 200;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 66px;
+  margin-bottom: 66px;
+}
+
+#container {
+	margin: 50px;
 }
 
 #core-authors-list-container {
@@ -36,8 +80,6 @@ h3 {
 div.tooltip {
   position: absolute;
   text-align: left;
-/*  width: 60px;
-  height: 28px;*/
   padding: 2px;
   color: black;
   font: 17px sans-serif;
@@ -77,8 +119,10 @@ button.core-author-toggle {
 
 
 /* sliders */
+
 .d3-slider-horizontal {
   width: 700px;
+  margin: 30px;
 }
 
 #POI-sliders.active {
