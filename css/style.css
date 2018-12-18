@@ -19,6 +19,22 @@ section#title-section {
   background: #aaaaaa;
 }
 
+/*Vis*/
+
+section#vis .container {
+  display: flex;
+}
+
+section#vis .container .item {
+  font-weight: 300;
+  margin: 12px;
+}
+
+.vis-big-titles {
+  font-size: 44px;
+}
+
+
 .opening-title {
   max-width: 500px;
   margin: auto;
@@ -50,10 +66,6 @@ section#title-section {
 	margin: 50px;
 }
 
-#vis-container {
-  float: left;
-}
-
 #core-authors-list-container {
   display: inline;
 }
@@ -68,8 +80,6 @@ section#title-section {
 div.tooltip {
   position: absolute;
   text-align: left;
-/*  width: 60px;
-  height: 28px;*/
   padding: 2px;
   color: black;
   font: 17px sans-serif;
@@ -109,8 +119,10 @@ button.core-author-toggle {
 
 
 /* sliders */
+
 .d3-slider-horizontal {
   width: 700px;
+  margin: 30px;
 }
 
 #POI-sliders.active {

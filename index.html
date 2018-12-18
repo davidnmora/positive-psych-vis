@@ -36,13 +36,12 @@
 		<p>Back to the grumpy psychologist and his daughter.</p>
 		<p>His name is Martin Seligman. And when he snaps at his daughter, she hits him with a retort that sends all of psychology realing:</p>
 		<p>"Daddy, stop being so grumpy. I used to be a whiney baby, but I learned to handle myself. <b>So you learn to be less grumpy, too.</b>" </p>
-		<p>Mindflowing, right? Yeah, not so much...</p>
+		<p>Mind-blowing, right? Yeah, not so much...</p>
 		<p>To understand why this was so world-shaking for Martin Seligman, realize that up to now he's spent his life studying people who feel depressed, fearful, and helpless.</p>
 		<p>Cheery stuff, right?</p>
 		<p>I mean, imagine the the rush of purpose and joy Seligman must have felt when he published his big paper, <i><b>"Chronic fear produced by unpredictable electric shock."</b></i></p>
-		<p>But this focus on human disfunction isn't surprising: <i><b>up until now,psychology essentially comprised of trying to diagnose and fix super messed up people.</b></i></p>
-		<p>So it's no surprise Martin Seligman ran around electricuting people into chronic fear.</p>
-		<p>But it got more depressing. Seligman started to realize that people weren't just <i>inflicted</i> with bad psychology:
+		<p>But Seligman's focus on human fear and disfunction isn't surprising: <i><b>up until now,psychology essentially comprised of trying to diagnose and fix super messed up people.</b></i></p>
+		<p>As if his focus wasn't depressing enough, Seligman started to realize that people weren't just <i>inflicted</i> with poor mental health:
 			<b>actually, otherwise healthy people were actively learning behaviors which steam rolled their own mental health.</b>
 		</p>
 		<p>Enter Seligman's no-nonsense daughter.</p>
@@ -51,31 +50,55 @@
 				<i>could he discover ways that people could learn to build happier, healthier minds?</i>
 			</b>
 		</p>
-		<p>Oh, yeah, and then he got elected president of the American Psychological Association.</p>
-		<p>Things were about to change...</p>
+		<p>Margin Seligman thought long and hard.</p>
+		<p>Then he got elected president of the American Psychological Association.</p>
+		<p><i>Things were about to change...</i></p>
 	</div>
 </section>
 
+
 <section>
 	<div class="prose-wrapper">
-		<h1>[More coming soon.]</h1>
+		<h1>[More coming soon...]</h1>
 		<p>For now checkout the vis of Positive Psychology pioneers below.</p>
 	</div>
 </section>
 
-<section>
-	<div id="vis-container">
-		<h3>Positive Psychology Over Time:</h3>
-		<h3>
-			between: <span id="timeline-range-slider-min"></span>
-			<br>
-			........and: <span id="timeline-range-slider-max"></span>
-		</h3>
-		<div id="timeline-range-slider"></div>
-		<div id="canvas"></div>
+<section id="vis">
+	<div class="container">
+		<div class="item">
+			<h1>What am I looking at?</h1>
+			<p>We’ve gathered every paper written by 19 leading Psychologists working in Positive Psychology, and represented each with a circle colored by author and sized by number of citations.</p>
+			<p>If paper A was highly influential on a later paper B (as determined by an machine learning algorithm looking at citations and text content), we’ve drawn a line connecting paper A to paper B.</p>
+		</div>
+		<div class="item">
+			<h1>How do I use the visualization?</h1>
+			<p>Hover a circle to see that paper’s name. Click and drag circles to better view their interconnections.</p>
+			<p>Add/remove Psychologists by clicking their name on the right. Click the top black button to select/deselect all authors.</p>
+			<p>Use the slider above the visualization to filter papers by the year they were published. For example, you can slide the left and right ends of the slider to look only at papers published between 1998 (the year of Martin Seligman’s APA presidency) and 2008, to view the short-term potential impact of his presidency on Positive Psychology.</p>
+		</div>
+		<div class="item">
+			<h1>What some specific aspects should I should check out?</h1>
+			<p>Kristen D. Neff (in brown) pioneered research around the concept of Self Compassion, a new front for Positive Psychology. You can see her work largely cites itself, with her papers sitting in a dense cluster.</p>
+			<p>Robert A. Emmons (in light purple) developed a “satisfaction with life scale” which works as a central hub uniting a variety of authors studying positive emotion and wellbeing. If you slide the right slider rightward beginning in 1986, you can see the highly influential paper gain traction and unify the field.</p>
+			<p>Isolating Carol S. Dweck and Angela Lee Duckworth, you can use the slider to watch how Dweck’s established research on intelligence and mindset supports Duckworth’s later research on effective school interventions.</p>
+		</div>
 	</div>
-	<div id="core-authors-list-container">
-		<button id="toggle-all-authors" class="core-author-toggle" type="button">Select/deselect all authors</button>
+	<div class="container">
+		<div class="item">
+			<div class="slider-container">
+				<span class="vis-big-titles">Papers published between:</span>
+				<span id="timeline-range-slider-min" class="vis-big-titles"></span> and
+				<span id="timeline-range-slider-max" class="vis-big-titles"></span>
+				<p>Drag slider ends to adjust time window.</p>
+			</div>
+			<div id="timeline-range-slider"></div>
+			<div id="canvas"></div>
+		</div>
+		<div id="core-authors-list-container" class="item">
+			<div class="vis-big-titles">Authors</div>
+			<button id="toggle-all-authors" class="core-author-toggle" type="button">Select/deselect all authors</button>
+		</div>
 	</div>
 </section>
 

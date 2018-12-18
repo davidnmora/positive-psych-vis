@@ -11,7 +11,7 @@ const DynamicGraph = (d3SelectedVisContainer, optionalPubVars) => {
     unfocusOpacity: 1,
     focusOpacity  : 1,
     unfocusStrokeThickness: 0.5,
-    focusStrokeThickness  : 5,
+    focusStrokeThicknesss  : 0.5,
     // Link and Node functions ("dummy" unless replaced by API call)
     linkColor       : link => "white",
     nodeColor       : node => "skyblue",
